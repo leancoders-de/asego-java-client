@@ -18,8 +18,8 @@ public class AsegoClientUnitTest {
 
     public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
         AsegoConfig.of(
-            "https://asego.mr-hear.leancoders.de/",
-            4444
+            "https://localhost/",
+            444
         );
     private static final ObjectMapper OBJECT_MAPPER = ObjectMapperFactory.createDefaultObjectMapper();
 
@@ -29,7 +29,7 @@ public class AsegoClientUnitTest {
             new AsegoClientService(
                 ASEGO_CONFIG_DEFAULT
             );
-        clientService.login("ralf", "admin12345");
+        clientService.login("test", "XxyL8X1GT6");
     }
 
     @Test

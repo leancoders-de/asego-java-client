@@ -4,6 +4,7 @@ import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.common.model.auth.UserLoginRequest;
+import de.leancoders.asego.common.model.auth.UserLoginResponse;
 import io.restassured.RestAssured;
 import io.restassured.config.ObjectMapperConfig;
 import io.restassured.config.RestAssuredConfig;
@@ -18,7 +19,6 @@ public class AsegoClientService {
     private final AsegoConfig config;
     private AsegoAuthContext asegoAuthContext;
 
-    @Nonnull
     public AsegoClientService(@Nonnull final AsegoConfig config) {
         this.config = config;
         configureRestAssured();
@@ -60,20 +60,20 @@ public class AsegoClientService {
                 username, password
             );
 
-        final String token = RestAssured.given()
+        final UserLoginResponse response = RestAssured.given()
             .accept(ContentType.JSON)
-            .contentType(ContentType.JSON)
-            .body(userLoginRequest)
+            .contentType(ContentType.URLENC)
+            .formParams(userLoginRequest.toMap())
             .log().all()
             .expect().statusCode(200)
             .log().all()
             .when()
             .post(path)
-            .as(String.class);
+            .as(UserLoginResponse.class);
 
-        this.asegoAuthContext = AsegoAuthContext.success(username, password, token);
+        this.asegoAuthContext = AsegoAuthContext.success(username, password, response.getAccessToken());
 
-        return token;
+        return response.getAccessToken();
     }
 
     @Nullable

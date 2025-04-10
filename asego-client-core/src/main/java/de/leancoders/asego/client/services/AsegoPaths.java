@@ -4,7 +4,7 @@ public interface AsegoPaths {
 
     // https://localhost:444/v1/Kunden/Create
 
-    String AUTH_BASE = "/auth/token/";
+    String AUTH_BASE = "/auth/token";
 
     String AUDIOGRAM_V1_BASE = "/v1/Audiogramm/";
     String AUDIOGRAM__LIST = AUDIOGRAM_V1_BASE + "Suche/";
