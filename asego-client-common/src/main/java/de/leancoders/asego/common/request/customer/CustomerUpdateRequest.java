@@ -10,82 +10,82 @@ import java.time.OffsetDateTime;
 public class CustomerUpdateRequest {
 
     @JsonProperty("AnredeID")
-    private String anredeID;
+    private String salutationID;
 
     @NonNull
     @JsonProperty("Vorname")
-    private String vorname;
+    private String firstName;
 
     @NonNull
     @JsonProperty("Nachname")
-    private String nachname;
+    private String lastName;
 
     @NonNull
     @JsonProperty("Geburtsdatum")
-    private OffsetDateTime geburtsdatum;
+    private OffsetDateTime birthDate;
 
     @JsonProperty("PrivatVersichert")
-    private Boolean privatVersichert;
+    private Boolean privatelyInsured;
 
     @JsonProperty("Zuzahlungsbefreit")
-    private Boolean zuzahlungsbefreit;
+    private Boolean coPaymentExempt;
 
     @JsonProperty("ZuzahlungsbefreitBis")
-    private OffsetDateTime zuzahlungsbefreitBis;
+    private OffsetDateTime coPaymentExemptUntil;
 
     @JsonProperty("KostentraegerID")
-    private String kostentraegerID;
+    private String insuranceCarrierID;
 
     @JsonProperty("VersicherungsNummer")
-    private String versicherungsNummer;
+    private String insuranceNumber;
 
     @JsonProperty("VersicherungsStatus")
-    private String versicherungsStatus;
+    private String insuranceStatus;
 
     @JsonProperty("IKGesundheitskarte")
-    private String ikGesundheitskarte;
+    private String healthCardIK;
 
     @JsonProperty("HNOArztID")
-    private String hnOArztID;
+    private String entDoctorID;
 
     @JsonProperty("EMail")
     private String email;
 
     @JsonProperty("Tel")
-    private String tel;
+    private String phone;
 
     @JsonProperty("Tel2")
-    private String tel2;
+    private String phone2;
 
     @JsonProperty("Fax")
     private String fax;
 
     @JsonProperty("Handy")
-    private String handy;
+    private String mobile;
 
     @JsonProperty("Strasse")
-    private String strasse;
+    private String street;
 
     @JsonProperty("Plz")
-    private String plz;
+    private String postalCode;
 
     @JsonProperty("Ort")
-    private String ort;
+    private String city;
 
     @JsonProperty("Freifeld1")
-    private String freifeld1;
+    private String freeField1;
 
     @JsonProperty("Freifeld2")
-    private String freifeld2;
+    private String freeField2;
 
     @JsonProperty("Freifeld3")
-    private String freifeld3;
+    private String freeField3;
 
     @JsonProperty("Freifeld4")
-    private String freifeld4;
+    private String freeField4;
 
     @JsonProperty("Freifeld5")
-    private String freifeld5;
+    private String freeField5;
 
     @JsonProperty("uid")
     private String uid;
@@ -94,7 +94,5 @@ public class CustomerUpdateRequest {
     private Boolean hearooApp;
 
     @JsonProperty("Inst")
-    private String inst;
-
-
+    private String branch;
 }
