@@ -23,7 +23,6 @@ import static de.leancoders.asego.client.services.AsegoPaths.CUSTOMERS__UPDATE_B
 
 public class CustomerClientService extends BaseClientService {
 
-    @Nonnull
     public CustomerClientService(@Nonnull final AsegoConfig config,
                                  @NonNull final AsegoAuthContext asegoAuthContext) {
         super(config, asegoAuthContext);

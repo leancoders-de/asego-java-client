@@ -20,7 +20,6 @@ import static de.leancoders.asego.client.services.AsegoPaths.AUDIOGRAM__LIST;
 
 public class AudiogramClientService extends BaseClientService {
 
-    @Nonnull
     public AudiogramClientService(@Nonnull final AsegoConfig config,
                                   @NonNull final AsegoAuthContext asegoAuthContext) {
         super(config, asegoAuthContext);
