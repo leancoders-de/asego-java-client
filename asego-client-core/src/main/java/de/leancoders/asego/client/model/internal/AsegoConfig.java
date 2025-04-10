@@ -19,9 +19,4 @@ public class AsegoConfig {
         return AsegoConfig.of("", 0);
     }
 
-    @Nonnull
-    public static AsegoConfig of(@NonNull final String baseUrl,
-                                 final int port) {
-        return AsegoConfig.of(baseUrl, port);
-    }
 }

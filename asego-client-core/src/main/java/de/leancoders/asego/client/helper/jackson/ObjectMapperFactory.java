@@ -10,12 +10,6 @@ import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
-import de.leancoders.asego.common.model.enums.EBackendType;
-import de.leancoders.asego.common.model.enums.EMediaType;
-import de.leancoders.asego.common.model.enums.EMimeType;
-import de.leancoders.asego.common.model.enums.EProductStatus;
-import de.leancoders.asego.common.model.enums.EProductType;
-import de.leancoders.asego.common.model.enums.EProductVisibility;
 
 import javax.annotation.Nonnull;
 import java.time.LocalDateTime;
@@ -45,24 +39,9 @@ public final class ObjectMapperFactory {
     @Nonnull
     private static SimpleModule enumModule() {
         final SimpleModule module = new SimpleModule();
-        // backend type
-        module.addDeserializer(EBackendType.class, new BackendTypeDeserializer());
-        module.addSerializer(EBackendType.class, new BackendTypeSerializer());
-        // custom mime type
-        module.addDeserializer(EMimeType.class, new MimeTypeDeserializer());
-        module.addSerializer(EMimeType.class, new MimeTypeSerializer());
-        // media type
-        module.addDeserializer(EMediaType.class, new MediaTypeDeserializer());
-        module.addSerializer(EMediaType.class, new MediaTypeSerializer());
-        // product status
-        module.addDeserializer(EProductStatus.class, new ProductStatusDeserializer());
-        module.addSerializer(EProductStatus.class, new ProductStatusSerializer());
-        // product type
-        module.addDeserializer(EProductType.class, new ProductTypeDeserializer());
-        module.addSerializer(EProductType.class, new ProductTypeSerializer());
-        // product visibility
-        module.addDeserializer(EProductVisibility.class, new ProductVisibilityDeserializer());
-        module.addSerializer(EProductVisibility.class, new ProductVisibilitySerializer());
+        // TODO CUSTOM Type Definitions
+        //  e.g. module.addDeserializer(EBackendType.class, new BackendTypeDeserializer());
+        //  e.g. module.addSerializer(EBackendType.class, new BackendTypeSerializer());
         return module;
     }
 

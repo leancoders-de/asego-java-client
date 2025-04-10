@@ -77,7 +77,7 @@ public class AsegoClientService {
     }
 
     @Nullable
-    public AsegoAuthContext mageAuthContext() {
+    public AsegoAuthContext authContext() {
         return asegoAuthContext;
     }
 }
