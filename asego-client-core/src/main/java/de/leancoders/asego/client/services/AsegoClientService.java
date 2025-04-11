@@ -49,6 +49,11 @@ public class AsegoClientService {
         return new CustomerClientService(config, asegoAuthContext);
     }
 
+    @Nonnull
+    public AudiogramClientService audiograms() {
+        return new AudiogramClientService(config, asegoAuthContext);
+    }
+
 
     @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
