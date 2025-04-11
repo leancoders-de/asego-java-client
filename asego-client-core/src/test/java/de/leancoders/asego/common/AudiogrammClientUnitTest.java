@@ -5,6 +5,7 @@ import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.audiogram.AudiogramSearchFilter;
+import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,12 @@ public class AudiogrammClientUnitTest {
     public void test_audriogramm_search(){
         AudiogramSearchFilter audiogramSearchFilter = AudiogramSearchFilter.of(
             UID);
-        clientService.audiograms().search(null, 0, 10, audiogramSearchFilter);
+        final AudiogramSearchResponse audiograms = clientService
+            .audiograms()
+            .search(null, 0, 10, audiogramSearchFilter);
+        System.out.println("audiograms = " + audiograms);
     }
+
+    
+        
 }
