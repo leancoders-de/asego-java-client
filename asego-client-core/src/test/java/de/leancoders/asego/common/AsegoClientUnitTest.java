@@ -5,6 +5,7 @@ import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
+import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
 import io.restassured.response.Response;
@@ -94,5 +95,28 @@ public class AsegoClientUnitTest {
                 .customers()
                 .update(UID, customerUpdateRequest);
         System.out.println("response = " + response.statusCode());
+    }
+
+    @Test
+    public void test_customers_create() {
+        final AsegoClientService clientService = new AsegoClientService(
+            ASEGO_CONFIG_DEFAULT
+        );
+        clientService.login(USERNAME, PASSWORD);
+
+        CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
+            "Test", 
+            "Test", 
+            Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+            CUSTOMER_EMAIL, 
+            "Strasse 1", 
+            "12345",
+            "Teststadt");
+
+        final CreatedElementResponse customer =
+            clientService
+                .customers()
+                .create(customerUpdateRequest);
+        System.out.println("customer = " + customer);
     }
 }

@@ -37,7 +37,7 @@ public class CustomerClientService extends BaseClientService {
             .accept(ContentType.JSON)
             .body(updateRequest)
             .log().all()
-            .expect().statusCode(200)
+            .expect().statusCode(201)
             .log().all()
             .when()
             .post(CUSTOMERS__CREATE)
