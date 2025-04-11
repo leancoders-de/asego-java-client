@@ -63,7 +63,7 @@ public class AudiogramClientService extends BaseClientService {
             .expect().statusCode(200)
             .log().all()
             .when()
-            .get(AUDIOGRAM__LIST)
+            .post(AUDIOGRAM__LIST)
             .as(AudiogramSearchResponse.class);
     }
 
