@@ -4,10 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
+import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
+import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -68,4 +72,27 @@ public class AsegoClientUnitTest {
         System.out.println("customers = " + customers);
     }
 
+    @Test
+    public void test_customers_update() {
+        final AsegoClientService clientService = new AsegoClientService(
+            ASEGO_CONFIG_DEFAULT
+        );
+        clientService.login(USERNAME, PASSWORD);
+
+        CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
+            "Test", 
+            "Test", 
+            Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+            CUSTOMER_EMAIL, 
+            "Strasse 1", 
+            "12345",
+            "Teststadt");
+
+
+        final Response response =
+            clientService
+                .customers()
+                .update(UID, customerUpdateRequest);
+        System.out.println("response = " + response.statusCode());
+    }
 }

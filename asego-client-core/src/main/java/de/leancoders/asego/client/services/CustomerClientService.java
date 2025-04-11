@@ -10,6 +10,7 @@ import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import lombok.NonNull;
 
 import javax.annotation.Nonnull;
@@ -44,7 +45,7 @@ public class CustomerClientService extends BaseClientService {
     }
 
     @Nonnull
-    public CreatedElementResponse update(@Nonnull final UUID uuid,
+    public Response update(@Nonnull final UUID uuid,
                                          @Nonnull final CustomerUpdateRequest updateRequest) {
 
         return request()
@@ -55,8 +56,8 @@ public class CustomerClientService extends BaseClientService {
             .expect().statusCode(200)
             .log().all()
             .when()
-            .put(CUSTOMERS__UPDATE_BY_ID, uuid)
-            .as(CreatedElementResponse.class);
+            .put(CUSTOMERS__UPDATE_BY_ID, uuid);
+            
     }
 
     @Nonnull
