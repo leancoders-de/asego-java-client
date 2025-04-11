@@ -3,7 +3,7 @@ package de.leancoders.asego.common.response.customer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -46,7 +46,7 @@ public class CustomerSearchListingItem {
     private String land;
 
     @JsonProperty("Geburtsdatum")
-    private OffsetDateTime geburtsdatum;
+    private Date geburtsdatum;
 
     @JsonProperty("Tel")
     private String tel;
@@ -82,7 +82,7 @@ public class CustomerSearchListingItem {
     private String aktenzeichen;
 
     @JsonProperty("GueltigBis")
-    private OffsetDateTime gueltigBis;
+    private Date gueltigBis;
 
     @JsonProperty("PrivatVersichert")
     private Boolean privatVersichert;
@@ -100,16 +100,16 @@ public class CustomerSearchListingItem {
     private Boolean zuzahlungsbefreitNein;
 
     @JsonProperty("ZuzahlungsbefreitBis")
-    private OffsetDateTime zuzahlungsbefreitBis;
+    private Date zuzahlungsbefreitBis;
 
     @JsonProperty("GesundheitskarteGueltigBis")
-    private OffsetDateTime gesundheitskarteGueltigBis;
+    private Date gesundheitskarteGueltigBis;
 
     @JsonProperty("Erstellungsdatum")
-    private OffsetDateTime erstellungsdatum;
+    private Date erstellungsdatum;
 
     @JsonProperty("LetzteAenderung")
-    private OffsetDateTime letzteAenderung;
+    private Date letzteAenderung;
 
     @JsonProperty("Werbung")
     private Boolean werbung;
@@ -130,7 +130,7 @@ public class CustomerSearchListingItem {
     private Boolean werbungKeineGewuenscht;
 
     @JsonProperty("KeineWerbungDatum")
-    private OffsetDateTime keineWerbungDatum;
+    private Date keineWerbungDatum;
 
     @JsonProperty("GrundKeineWerbung")
     private UUID grundKeineWerbung;
@@ -142,16 +142,16 @@ public class CustomerSearchListingItem {
     private Boolean dataloggingUnterschrieben;
 
     @JsonProperty("LetztesHoergeraetR")
-    private OffsetDateTime letztesHoergeraetR;
+    private Date letztesHoergeraetR;
 
     @JsonProperty("LetztesHoergeraetL")
-    private OffsetDateTime letztesHoergeraetL;
+    private Date letztesHoergeraetL;
 
     @JsonProperty("LetzterBesuch")
-    private OffsetDateTime letzterBesuch;
+    private Date letzterBesuch;
 
     @JsonProperty("NaechsteKontrolle")
-    private OffsetDateTime naechsteKontrolle;
+    private Date naechsteKontrolle;
 
     @JsonProperty("BetreuerAkustikKuerzel")
     private String betreuerAkustikKuerzel;
@@ -244,7 +244,7 @@ public class CustomerSearchListingItem {
     private String inst;
 
     @JsonProperty("InaktivDatum")
-    private OffsetDateTime inaktivDatum;
+    private Date inaktivDatum;
 
     @JsonProperty("GrundInaktiv")
     private UUID grundInaktiv;

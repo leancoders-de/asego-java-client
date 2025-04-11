@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 @Log4j2
 public class AsegoClientUnitTest {
 
+    
     public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
         AsegoConfig.of(
             "https://localhost/",
@@ -37,12 +38,12 @@ public class AsegoClientUnitTest {
         final AsegoClientService clientService = new AsegoClientService(
             ASEGO_CONFIG_DEFAULT
         );
-        clientService.login("admin", "admin123");
+        clientService.login("test", "XxyL8X1GT6");
 
         final CustomerSearchResponse customers =
             clientService
                 .customers()
-                .searchByEmail(null, 0, 10, "email@email.com");
+                .searchByEmail(null, 0, 10, "test@test.de");
 
 
         System.out.println("customers = " + customers);

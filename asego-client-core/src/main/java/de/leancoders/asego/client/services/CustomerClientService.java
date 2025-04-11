@@ -114,7 +114,7 @@ public class CustomerClientService extends BaseClientService {
             .expect().statusCode(200)
             .log().all()
             .when()
-            .get(CUSTOMERS__LIST)
+            .post(CUSTOMERS__LIST)
             .as(CustomerSearchResponse.class);
     }
 
