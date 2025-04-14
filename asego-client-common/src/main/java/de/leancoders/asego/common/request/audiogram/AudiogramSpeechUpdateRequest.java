@@ -4,13 +4,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import de.leancoders.asego.common.model.audiogram.EAudiogramSpeechType;
+import de.leancoders.asego.common.model.audiogram.EAudiogramType;
 import de.leancoders.asego.common.model.audiogram.EEarType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -20,12 +18,8 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         super();
     }
 
-    @NonNull
-    @JsonProperty("Typ")
-    private EAudiogramSpeechType type;
-        
-
-    public static AudiogramSpeechUpdateRequest of(EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date) {
+      
+    public static AudiogramSpeechUpdateRequest of(EAudiogramType type, Boolean manual, EEarType ear, Date date) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setType(type);
         request.setManual(manual);
@@ -34,7 +28,7 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date) {
+    public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setParentId(parentId);
         request.setDescription(description);
@@ -45,7 +39,7 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-     public static AudiogramSpeechUpdateRequest of( EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
+     public static AudiogramSpeechUpdateRequest of( EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
 
         request.setType(type);
@@ -56,7 +50,7 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramSpeechUpdateRequest of(UUID parentId,EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
+    public static AudiogramSpeechUpdateRequest of(UUID parentId,EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setParentId(parentId);
         request.setType(type);
@@ -67,7 +61,7 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramSpeechUpdateRequest of(String description, EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
+    public static AudiogramSpeechUpdateRequest of(String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setDescription(description);
         request.setType(type);
@@ -78,7 +72,7 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramSpeechType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
+    public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setParentId(parentId);
         request.setDescription(description);

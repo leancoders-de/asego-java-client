@@ -2,6 +2,7 @@ package de.leancoders.asego.common.request.audiogram;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import de.leancoders.asego.common.model.audiogram.EAudiogramType;
 import de.leancoders.asego.common.model.audiogram.EEarType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,10 @@ public abstract class AudiogramBaseUpdateRequest {
     @NonNull
     @JsonProperty("Manuell")
     private Boolean manual;
+
+    @NonNull
+    @JsonProperty("Typ")
+    private EAudiogramType type;
 
     @NonNull
     @JsonProperty("Ohr")

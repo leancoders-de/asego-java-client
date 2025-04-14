@@ -2,7 +2,7 @@ package de.leancoders.asego.common.model.audiogram;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum EAudiogramSpeechType {
+public enum EAudiogramType {
 
     DV_FF(0),
     DV_FF1(1),
@@ -28,7 +28,7 @@ public enum EAudiogramSpeechType {
 
     private final int value;
 
-    EAudiogramSpeechType(final int value) {
+    EAudiogramType(final int value) {
         this.value = value;
     }
 
@@ -37,8 +37,8 @@ public enum EAudiogramSpeechType {
         return value;
     }
 
-    public static EAudiogramSpeechType fromValue(int value) {
-        for (EAudiogramSpeechType type : EAudiogramSpeechType.values()) {
+    public static EAudiogramType fromValue(int value) {
+        for (EAudiogramType type : EAudiogramType.values()) {
             if (type.value == value) {
                 return type;
             }

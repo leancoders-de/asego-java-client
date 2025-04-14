@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 import java.util.UUID;
 
 import static de.leancoders.asego.client.services.AsegoPaths.AUDIOGRAM__CUSTOMER_SPEECH_CREATE;
+import static de.leancoders.asego.client.services.AsegoPaths.AUDIOGRAM__CUSTOMER_TONE_CREATE;
 import static de.leancoders.asego.client.services.AsegoPaths.AUDIOGRAM__LIST;
 
 public class AudiogramClientService extends BaseClientService {
@@ -41,6 +42,23 @@ public class AudiogramClientService extends BaseClientService {
             .as(CreatedElementResponse.class);
     }
 
+    @Nonnull
+    public CreatedElementResponse createTone(@NonNull final UUID customerUUID,
+                                         @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
+
+        return request()
+            .contentType(ContentType.JSON)
+            .accept(ContentType.JSON)
+            .body(updateRequest)
+            .log().all()
+            .expect().statusCode(201)
+            .log().all()
+            .when()
+            .post(AUDIOGRAM__CUSTOMER_TONE_CREATE, customerUUID)
+            .as(CreatedElementResponse.class);
+    }
+
+    
     @Nonnull
     public AudiogramSearchResponse search(@Nullable final UUID searchToken,
                                           final int page,
