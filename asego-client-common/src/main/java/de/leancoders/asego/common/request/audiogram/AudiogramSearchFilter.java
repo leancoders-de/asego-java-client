@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
@@ -31,7 +31,7 @@ public class AudiogramSearchFilter {
 
     @JsonProperty("Datum")
     @Nullable
-    private OffsetDateTime datum;
+    private Date datum;
 
     @JsonProperty("Beschreibung")
     @Nullable

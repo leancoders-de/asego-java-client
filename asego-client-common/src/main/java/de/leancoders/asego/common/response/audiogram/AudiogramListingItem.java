@@ -3,13 +3,13 @@ package de.leancoders.asego.common.response.audiogram;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Data
 public class AudiogramListingItem {
 
     @JsonProperty("Datum")
-    private OffsetDateTime datum;
+    private Date datum;
 
     @JsonProperty("Beschreibung")
     private String beschreibung;
