@@ -8,6 +8,9 @@ public interface AsegoPaths {
 
     String AUDIOGRAM_V1_BASE = "/v1/Audiogramm/";
     String AUDIOGRAM__LIST = AUDIOGRAM_V1_BASE + "Suche/";
+    String AUDIOGRAM__TONE_GET_BY_ID = AUDIOGRAM_V1_BASE + "{uuid}/Ton/";
+    String AUDIOGRAM__SPEECH_GET_BY_ID = AUDIOGRAM_V1_BASE + "{uuid}/Sprache/";
+    String AUDIOGRAM__GET_BY_CUSTOMER_ID = AUDIOGRAM_V1_BASE + "Kunden/{kundenUid}/";
     String AUDIOGRAM__CUSTOMER_SPEECH_CREATE = AUDIOGRAM_V1_BASE + "Kunden/{kundenUid}/Sprache/";
     String AUDIOGRAM__CUSTOMER_TONE_CREATE = AUDIOGRAM_V1_BASE + "Kunden/{kundenUid}/Ton/";
 

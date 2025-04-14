@@ -12,6 +12,7 @@ import de.leancoders.asego.common.request.audiogram.AudiogramSearchFilter;
 import de.leancoders.asego.common.request.audiogram.AudiogramSpeechUpdateRequest;
 import de.leancoders.asego.common.request.audiogram.AudiogramToneUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
+import de.leancoders.asego.common.response.audiogram.AudiogramListingItem;
 import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,8 @@ public class AudiogrammClientUnitTest {
     private static final String USERNAME = "test";
     private static final String PASSWORD = "XxyL8X1GT6";
     private static final UUID UID = UUID.fromString("53290761-F5D4-4990-AAB2-0CDEAEF30325");
+    private static final UUID TONE_UUID = UUID.fromString("41eb7db8-bb74-4306-b858-06ae043e1ec5");
+    private static final UUID SPEECH_UUID = UUID.fromString("98d6ea73-cf56-4565-b17e-a6f27f44c39d");
     
     public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
         AsegoConfig.of(
@@ -81,5 +84,26 @@ public class AudiogrammClientUnitTest {
     
         System.out.println("audiogram = " + audiogram);
     }
+    
+    @Test
+    public void test_audiogramm_getToneById(){
+        final List<AudiogramListingItem> audiogram = clientService.audiograms().getToneById(TONE_UUID);
+        System.out.println("audiogram = " + audiogram);
+    }
+
+    @Test
+    public void test_audiogramm_getSpeechById(){
+        final List<AudiogramListingItem> audiogram = clientService.audiograms().getSpeechById(SPEECH_UUID);
+        System.out.println("audiogram = " + audiogram);
+    }
+
+
+    // FAILS with 500 error code because of a InvalidCastException seems to be a problem with server
+    @Test
+    public void test_audiogramm_getByCustomer(){
+        final List<AudiogramListingItem> audiogram = clientService.audiograms().getByCustomer(UID);
+        System.out.println("audiogram = " + audiogram);
+    }
+        
         
 }
