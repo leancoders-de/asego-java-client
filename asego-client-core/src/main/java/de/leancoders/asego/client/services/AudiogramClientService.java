@@ -26,7 +26,7 @@ public class AudiogramClientService extends BaseClientService {
     }
 
     @Nonnull
-    public CreatedElementResponse create(@NonNull final UUID customerUUID,
+    public CreatedElementResponse createSpeech(@NonNull final UUID customerUUID,
                                          @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
 
         return request()
@@ -34,7 +34,7 @@ public class AudiogramClientService extends BaseClientService {
             .accept(ContentType.JSON)
             .body(updateRequest)
             .log().all()
-            .expect().statusCode(200)
+            .expect().statusCode(201)
             .log().all()
             .when()
             .post(AUDIOGRAM__CUSTOMER_SPEECH_CREATE, customerUUID)

@@ -4,12 +4,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
+import de.leancoders.asego.common.model.audiogram.EAudiogramSpeechType;
+import de.leancoders.asego.common.model.audiogram.EEarType;
+import de.leancoders.asego.common.model.audiogram.EMessureItemType;
+import de.leancoders.asego.common.request.audiogram.AudiogramMeasureItem;
 import de.leancoders.asego.common.request.audiogram.AudiogramSearchFilter;
+import de.leancoders.asego.common.request.audiogram.AudiogramSpeechUpdateRequest;
+import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Log4j2
@@ -35,7 +44,7 @@ public class AudiogrammClientUnitTest {
     }
 
     @Test
-    public void test_audriogramm_search(){
+    public void test_audiogram_search(){
         AudiogramSearchFilter audiogramSearchFilter = AudiogramSearchFilter.of(
             UID);
         final AudiogramSearchResponse audiograms = clientService
@@ -44,6 +53,19 @@ public class AudiogrammClientUnitTest {
         System.out.println("audiograms = " + audiograms);
     }
 
+    @Test
+    public void test_audriogramm_createSpech(){
+
+        final List<AudiogramMeasureItem> audiogramMeasureItems = List.of(
+            AudiogramMeasureItem.of(0, 0, EMessureItemType.NONE),
+            AudiogramMeasureItem.of(90, 40, EMessureItemType.NONE));       
+
+        final AudiogramSpeechUpdateRequest audiogramSpeechUpdateRequest = AudiogramSpeechUpdateRequest.of(
+            EAudiogramSpeechType.DV_LL, true, EEarType.BOTH  , Date.from(Instant.now()), audiogramMeasureItems);
+
+        final CreatedElementResponse audiogram = clientService.audiograms().createSpeech(UID, audiogramSpeechUpdateRequest);
+        System.out.println("audiogram = " + audiogram);
+    }
     
         
 }

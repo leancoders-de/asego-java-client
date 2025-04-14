@@ -8,6 +8,7 @@ import de.leancoders.asego.common.model.auth.UserLoginResponse;
 import io.restassured.RestAssured;
 import io.restassured.config.ObjectMapperConfig;
 import io.restassured.config.RestAssuredConfig;
+import io.restassured.config.SSLConfig;
 import io.restassured.http.ContentType;
 import lombok.NonNull;
 
@@ -33,7 +34,7 @@ public class AsegoClientService {
                 .objectMapperConfig(
                     new ObjectMapperConfig().jackson2ObjectMapperFactory(
                         (type, s) -> ObjectMapperFactory.createDefaultObjectMapper()
-                    ));
+                    )).sslConfig(new SSLConfig().relaxedHTTPSValidation());
     }
 
     @Nonnull
