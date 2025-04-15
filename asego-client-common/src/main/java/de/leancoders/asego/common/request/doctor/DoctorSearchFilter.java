@@ -72,12 +72,12 @@ public class DoctorSearchFilter {
     private Integer typeId;
     
     @JsonProperty("Ohrenarzt")
-    private Boolean earDoctor;
+    private Boolean entDoctor;
     
     @JsonProperty("Augenarzt")
     private Boolean eyeDoctor;
     
     @JsonProperty("Hausarzt")
-    private Boolean familyDoctor;
+    private Boolean generalPractitioner;
 
 }

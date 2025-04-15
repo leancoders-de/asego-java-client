@@ -17,7 +17,7 @@ public class CustomerUpdateRequest {
 
 
     @JsonProperty("AnredeID")
-    private String salutationID;
+    private String salutationId;
 
     @NonNull
     @JsonProperty("Vorname")
@@ -41,7 +41,7 @@ public class CustomerUpdateRequest {
     private Date coPaymentExemptUntil;
 
     @JsonProperty("KostentraegerID")
-    private String insuranceCarrierID;
+    private String insuranceCarrierId;
 
     @JsonProperty("VersicherungsNummer")
     private String insuranceNumber;
@@ -50,10 +50,10 @@ public class CustomerUpdateRequest {
     private String insuranceStatus;
 
     @JsonProperty("IKGesundheitskarte")
-    private String healthCardIK;
+    private String healthCardInstituionCode;
 
     @JsonProperty("HNOArztID")
-    private String entDoctorID;
+    private String entDoctorId;
 
     @NonNull
     @JsonProperty("EMail")
@@ -84,19 +84,19 @@ public class CustomerUpdateRequest {
     private String city;
 
     @JsonProperty("Freifeld1")
-    private String freeField1;
+    private String customField1;
 
     @JsonProperty("Freifeld2")
-    private String freeField2;
+    private String customField2;
 
     @JsonProperty("Freifeld3")
-    private String freeField3;
+    private String customField3;
 
     @JsonProperty("Freifeld4")
-    private String freeField4;
+    private String customField4;
 
     @JsonProperty("Freifeld5")
-    private String freeField5;
+    private String customField5;
 
     @JsonProperty("uid")
     private String uid;

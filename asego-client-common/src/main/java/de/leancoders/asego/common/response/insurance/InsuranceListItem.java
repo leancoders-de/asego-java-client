@@ -12,28 +12,28 @@ public class InsuranceListItem {
     private UUID uid;
 
     @JsonProperty("Suchbegriff")
-    private String suchbegriff;
+    private String searchTerm;
 
     @JsonProperty("IkNummer")
-    private String ikNummer;
+    private String institutionCode;
 
     @JsonProperty("Name")
     private String name;
 
     @JsonProperty("Zusatz")
-    private String zusatz;
+    private String additonalName;
 
     @JsonProperty("Strasse")
-    private String strasse;
+    private String street;
 
     @JsonProperty("Ort")
-    private String ort;
+    private String city;
 
     @JsonProperty("Plz")
-    private String plz;
+    private String postalCode;
 
     @JsonProperty("Tel")
-    private String tel;
+    private String phone;
 
     @JsonProperty("Fax")
     private String fax;
@@ -42,5 +42,5 @@ public class InsuranceListItem {
     private String email;
 
     @JsonProperty("Geloescht")
-    private Boolean geloescht;
+    private Boolean deleted;
 }

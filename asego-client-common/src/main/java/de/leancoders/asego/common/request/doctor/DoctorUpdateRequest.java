@@ -20,43 +20,43 @@ public class DoctorUpdateRequest {
 
     @Nullable
     @JsonProperty("Suchbegriff")
-    private String suchbegriff;
+    private String searchTerm;
 
     @Nullable
     @JsonProperty("Art")
-    private String art;
+    private String type;
 
     @NonNull
     @JsonProperty("PraxisName")
-    private String praxisName;
+    private String practiceName;
 
     @Nullable
     @JsonProperty("Anrede")
-    private String anrede;
+    private String salutation;
 
     @NonNull
     @JsonProperty("Vorname")
-    private String vorname;
+    private String firstName;
 
     @NonNull
     @JsonProperty("Nachname")
-    private String nachname;
+    private String lastName;
 
     @Nullable
     @JsonProperty("Strasse")
-    private String strasse;
+    private String street;
 
     @Nullable
     @JsonProperty("Plz")
-    private String plz;
+    private String postalCode;
 
     @Nullable
     @JsonProperty("Ort")
-    private String ort;
+    private String city;
 
     @Nullable
     @JsonProperty("Tel")
-    private String tel;
+    private String phone;
 
     @Nullable
     @JsonProperty("Fax")
@@ -64,37 +64,37 @@ public class DoctorUpdateRequest {
 
     @Nullable
     @JsonProperty("Handy")
-    private String handy;
+    private String mobile;
 
     @Nullable
     @JsonProperty("Webseite")
-    private String webseite;
+    private String website;
 
     @Nullable
     @JsonProperty("Arztnummer")
-    private String arztnummer;
+    private String doctorNumber;
 
     @Nullable
     @JsonProperty("Betriebsstaettennummer")
-    private String betriebsstaettennummer;
+    private String practiceNumber;
 
     @Nullable
     @JsonProperty("Fachgebiet")
-    private String fachgebiet;
+    private String specialty;
 
     @Nullable
     @JsonProperty("Ohrenarzt")
-    private Boolean ohrenarzt;
+    private Boolean entDoctor;
 
     @Nullable
     @JsonProperty("Hausarzt")
-    private Boolean hausarzt;
+    private Boolean generalPractitioner;
 
     @Nullable
     @JsonProperty("Augenarzt")
-    private Boolean augenarzt;
+    private Boolean eyeDoctor;
 
     @Nullable
     @JsonProperty("Inaktiv")
-    private Boolean inaktiv;
+    private Boolean inactive;
 }

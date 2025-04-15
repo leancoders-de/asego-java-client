@@ -7,12 +7,12 @@ import lombok.Data;
 public class AudiogramMeasureItem {
 
     @JsonProperty("Wert")
-    private Integer wert;
+    private Integer value;
 
     @JsonProperty("Ergebnis")
-    private Integer ergebnis;
+    private Integer result;
 
     @JsonProperty("Typ")
-    private String typ;
+    private String type;
 
 }

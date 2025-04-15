@@ -20,7 +20,7 @@ public class InsuranceSearchFilter {
     @JsonProperty("Suchbegriff")
     private String searchTerm;
     @JsonProperty("IkNummer")
-    private String ikNumber;
+    private String institutionCode;
     @JsonProperty("Name")
     private String name;
     @JsonProperty("Zusatz")

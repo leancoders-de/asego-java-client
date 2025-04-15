@@ -9,10 +9,10 @@ import java.util.Date;
 public class AudiogramListingItem {
 
     @JsonProperty("Datum")
-    private Date datum;
+    private Date date;
 
     @JsonProperty("Beschreibung")
-    private String beschreibung;
+    private String description;
 
     @JsonProperty("uid")
     private String uid;

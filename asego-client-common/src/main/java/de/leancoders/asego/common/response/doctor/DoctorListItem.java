@@ -10,51 +10,51 @@ public class DoctorListItem {
     private String uid;
 
     @JsonProperty("Suchbegriff")
-    private String suchbegriff;
+    private String searchTerm;
 
     @JsonProperty("Art")
-    private String art;
+    private String type;
 
     @JsonProperty("PraxisName")
-    private String praxisName;
+    private String practiceName;
 
     @JsonProperty("Anrede")
-    private String anrede;
+    private String salutation;
 
     @JsonProperty("Vorname")
-    private String vorname;
+    private String firstName;
 
     @JsonProperty("Nachname")
-    private String nachname;
+    private String lastName;
 
     @JsonProperty("Strasse")
-    private String strasse;
+    private String street;
 
     @JsonProperty("Plz")
-    private String plz;
+    private String postalCode;
 
     @JsonProperty("Ort")
-    private String ort;
+    private String city;
 
     @JsonProperty("Tel")
-    private String tel;
+    private String phone;
 
     @JsonProperty("Fax")
     private String fax;
 
     @JsonProperty("Handy")
-    private String handy;
+    private String mobile;
 
     @JsonProperty("Webseite")
-    private String webseite;
+    private String website;
 
     @JsonProperty("Arztnummer")
-    private String arztnummer;
+    private String doctorNumber;
 
     @JsonProperty("Betriebsstaettennummer")
-    private String betriebsstaettennummer;
+    private String practiceNumber;
 
     @JsonProperty("Fachgebiet")
-    private String fachgebiet;
+    private String specialty;
 
 }

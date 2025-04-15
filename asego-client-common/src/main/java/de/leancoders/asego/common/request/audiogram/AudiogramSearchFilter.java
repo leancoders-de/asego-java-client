@@ -19,23 +19,23 @@ public class AudiogramSearchFilter {
 
     @JsonProperty("KundenUid")
     @Nonnull
-    private UUID kundenUid;
+    private UUID customerUid;
 
     @JsonProperty("Ton")
     @Nullable
-    private Boolean ton;
+    private Boolean tone;
 
     @JsonProperty("Sprache")
     @Nullable
-    private Boolean sprache;
+    private Boolean speech;
 
     @JsonProperty("Datum")
     @Nullable
-    private Date datum;
+    private Date date;
 
     @JsonProperty("Beschreibung")
     @Nullable
-    private String beschreibung;
+    private String description;
 
     @JsonProperty("uid")
     @Nullable
@@ -43,10 +43,10 @@ public class AudiogramSearchFilter {
 
     @JsonProperty("Tone")
     @Nullable
-    private Boolean tone;
+    private Boolean toneEn;
 
     @JsonProperty("Speech")
     @Nullable
-    private Boolean speech;
+    private Boolean speechEn;
 
 }

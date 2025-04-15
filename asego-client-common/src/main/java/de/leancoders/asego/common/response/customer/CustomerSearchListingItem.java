@@ -13,240 +13,239 @@ public class CustomerSearchListingItem {
     private String uid;
 
     @JsonProperty("Kundennummer")
-    private Integer kundennummer;
+    private Integer customerNumber;
 
     @JsonProperty("AnredeID")
-    private String anredeID;
+    private String salutationId;
 
     @JsonProperty("TitelID")
-    private String titelID;
+    private String titleId;
 
     @JsonProperty("Vorname")
-    private String vorname;
+    private String firstName;
 
     @JsonProperty("Nachname")
-    private String nachname;
+    private String lastName;
 
     @JsonProperty("Namenszusatz")
-    private String namenszusatz;
+    private String nameAddition;
 
     @JsonProperty("Ordensname")
-    private String ordensname;
+    private String religiousName;
 
     @JsonProperty("Strasse")
-    private String strasse;
+    private String street;
 
     @JsonProperty("Plz")
-    private String plz;
+    private String postalCode;
 
     @JsonProperty("Ort")
-    private String ort;
+    private String city;
 
     @JsonProperty("Land")
-    private String land;
+    private String country;
 
     @JsonProperty("Geburtsdatum")
-    private Date geburtsdatum;
+    private Date dateOfBirth;
 
     @JsonProperty("Tel")
-    private String tel;
+    private String phone;
 
     @JsonProperty("Tel2")
-    private String tel2;
+    private String phone2;
 
     @JsonProperty("Fax")
     private String fax;
 
     @JsonProperty("Handy")
-    private String handy;
+    private String mobile;
 
     @JsonProperty("Email")
     private String email;
 
     @JsonProperty("Webseite")
-    private String webseite;
+    private String website;
 
     @JsonProperty("KostentraegerID")
-    private String kostentraegerID;
+    private String insuranceCarrierId;
 
     @JsonProperty("IKGesundheitskarte")
-    private String ikGesundheitskarte;
+    private String healthCardInstitutionCode;
 
     @JsonProperty("VersicherungsNummer")
-    private String versicherungsNummer;
+    private String insuranceNumber;
 
     @JsonProperty("VersicherungsStatus")
-    private String versicherungsStatus;
+    private String insuranceStatus;
 
     @JsonProperty("Aktenzeichen")
-    private String aktenzeichen;
+    private String fileNumber;
 
     @JsonProperty("GueltigBis")
-    private Date gueltigBis;
+    private Date validUntil;
 
     @JsonProperty("PrivatVersichert")
-    private Boolean privatVersichert;
+    private Boolean privatelyInsured;
 
     @JsonProperty("Beihilfe")
-    private Boolean beihilfe;
+    private Boolean subsidyEligible;
 
     @JsonProperty("AnTaubheitGrenzend")
-    private Boolean anTaubheitGrenzend;
+    private Boolean borderlineDeaf;
 
     @JsonProperty("Zuzahlungsbefreit")
-    private Boolean zuzahlungsbefreit;
+    private Boolean coPaymentExempt;
 
     @JsonProperty("ZuzahlungsbefreitNein")
-    private Boolean zuzahlungsbefreitNein;
+    private Boolean notCopaymentExempt;
 
     @JsonProperty("ZuzahlungsbefreitBis")
-    private Date zuzahlungsbefreitBis;
+    private Date coPaymentExemptUntil;
 
     @JsonProperty("GesundheitskarteGueltigBis")
-    private Date gesundheitskarteGueltigBis;
+    private Date healthCardValidUntil;
 
     @JsonProperty("Erstellungsdatum")
-    private Date erstellungsdatum;
+    private Date creationDate;
 
     @JsonProperty("LetzteAenderung")
-    private Date letzteAenderung;
+    private Date lastModified;
 
     @JsonProperty("Werbung")
-    private Boolean werbung;
+    private Boolean marketing;
 
     @JsonProperty("WerbungUnterschrieben")
-    private Boolean werbungUnterschrieben;
+    private Boolean marketingConsentSigned;
 
     @JsonProperty("WerbungTelefon")
-    private Boolean werbungTelefon;
+    private Boolean marketingByPhone;
 
     @JsonProperty("WerbungPost")
-    private Boolean werbungPost;
+    private Boolean marketingByMail;
 
     @JsonProperty("WerbungEmail")
-    private Boolean werbungEmail;
+    private Boolean marketingByEmail;
 
     @JsonProperty("WerbungKeineGewuenscht")
-    private Boolean werbungKeineGewuenscht;
+    private Boolean noMarketingWished;
 
     @JsonProperty("KeineWerbungDatum")
-    private Date keineWerbungDatum;
+    private Date noMarketingDate;
 
     @JsonProperty("GrundKeineWerbung")
-    private UUID grundKeineWerbung;
+    private UUID reasonNoMarketing;
 
     @JsonProperty("DatenschutzAusgehaendigt")
-    private Boolean datenschutzAusgehaendigt;
+    private Boolean privacyPolicyHandedOver;
 
     @JsonProperty("DataloggingUnterschrieben")
-    private Boolean dataloggingUnterschrieben;
+    private Boolean dataLoggingConsentSigned;
 
     @JsonProperty("LetztesHoergeraetR")
-    private Date letztesHoergeraetR;
+    private Date lastHearingAidRight;
 
     @JsonProperty("LetztesHoergeraetL")
-    private Date letztesHoergeraetL;
+    private Date lastHearingAidLeft;
 
     @JsonProperty("LetzterBesuch")
-    private Date letzterBesuch;
+    private Date lastVisit;
 
     @JsonProperty("NaechsteKontrolle")
-    private Date naechsteKontrolle;
+    private Date nextCheckup;
 
     @JsonProperty("BetreuerAkustikKuerzel")
-    private String betreuerAkustikKuerzel;
+    private String acousticConsultantAbbreviation;
 
     @JsonProperty("BetreuerOptikKuerzel")
-    private String betreuerOptikKuerzel;
+    private String opticalConsultantAbbreviation;
 
     @JsonProperty("Info")
     private String info;
 
     @JsonProperty("ZusatzInfo")
-    private String zusatzInfo;
+    private String additionalInfo;
 
     @JsonProperty("NeuKundenGrundID")
-    private String neuKundenGrundID;
+    private String newCustomerReasonId;
 
     @JsonProperty("Freifeld1")
-    private String freifeld1;
+    private String customField1;
 
     @JsonProperty("Freifeld2")
-    private String freifeld2;
+    private String customField2;
 
     @JsonProperty("Freifeld3")
-    private String freifeld3;
+    private String customField3;
 
     @JsonProperty("Freifeld4")
-    private String freifeld4;
+    private String customField4;
 
     @JsonProperty("Freifeld5")
-    private String freifeld5;
+    private String customField5;
 
     @JsonProperty("SMSTermin")
-    private Boolean smSTermin;
+    private Boolean smsAppointment;
 
     @JsonProperty("SMSAuftragseingang")
-    private Boolean smSAuftragseingang;
+    private Boolean smsOrderReceipt;
 
     @JsonProperty("SMSMahnung")
-    private Boolean smSMahnung;
+    private Boolean smsReminder;
 
     @JsonProperty("SMSRatenzahlung")
-    private Boolean smSRatenzahlung;
+    private Boolean smsInstallmentPayment;
 
     @JsonProperty("SMSKontrolle")
-    private Boolean smSKontrolle;
+    private Boolean smsCheckup;
 
     @JsonProperty("SMSWerbung")
-    private Boolean smSWerbung;
+    private Boolean smsMarketing;
 
     @JsonProperty("SMSBestellungWE")
-    private Boolean smSBestellungWE;
+    private Boolean smsOrderWeekend;
 
     @JsonProperty("SMSKABewilligung")
-    private Boolean smSKABewilligung;
+    private Boolean smsInsuranceApproval;
 
     @JsonProperty("SMSGeburtstag")
-    private Boolean smSGeburtstag;
+    private Boolean smsBirthday;
 
     @JsonProperty("SMSKeineGewuenscht")
-    private Boolean smSKeineGewuenscht;
+    private Boolean smsNoneWished;
 
     @JsonProperty("SMSHatKeinHandy")
-    private Boolean smSHatKeinHandy;
+    private Boolean smsNoMobilePhonePhone;
 
     @JsonProperty("SMSBrilleAbholbereit")
-    private Boolean smSBrilleAbholbereit;
+    private Boolean smsGlassesReadyForPickup;
 
     @JsonProperty("SMSWarenversand")
-    private Boolean smSWarenversand;
+    private Boolean smsProductShipment;
 
     @JsonProperty("ArtDesKunden")
-    private String artDesKunden;
+    private String customerType;
 
     @JsonProperty("ArztHNOID")
-    private String arztHNOID;
+    private String entDoctorId;
 
     @JsonProperty("ArztHausID")
-    private String arztHausID;
+    private String generalPractitionerId;
 
     @JsonProperty("ArztAugenID")
-    private String arztAugenID;
+    private String ophthDoctorId;
 
     @JsonProperty("BetreuerID")
-    private String betreuerID;
+    private String consultantId;
 
     @JsonProperty("BetreuerOptikID")
-    private String betreuerOptikID;
+    private String opticalConsultantId;
 
     @JsonProperty("Inst")
-    private String inst;
+    private String institution;
 
     @JsonProperty("InaktivDatum")
-    private Date inaktivDatum;
+    private Date inactiveDate;
 
     @JsonProperty("GrundInaktiv")
-    private UUID grundInaktiv;
-
+    private UUID reasonInactive;
 }

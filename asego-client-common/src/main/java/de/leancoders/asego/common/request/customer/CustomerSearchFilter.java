@@ -15,7 +15,7 @@ public class CustomerSearchFilter {
     private List<String> branch;
 
     @JsonProperty("SelektionsKuerzelID")
-    private String selectionShortcutID;
+    private String selectionShortcutId;
 
     @JsonProperty("LetzteAenderung")
     private DateTimeParameter lastChange;
@@ -30,10 +30,10 @@ public class CustomerSearchFilter {
     private Integer customerNumber;
 
     @JsonProperty("AnredeID")
-    private String salutationID;
+    private String salutationId;
 
     @JsonProperty("TitelID")
-    private String titleID;
+    private String titleId;
 
     @JsonProperty("Vorname")
     private String firstName;
@@ -81,10 +81,10 @@ public class CustomerSearchFilter {
     private String website;
 
     @JsonProperty("KostentraegerID")
-    private String insuranceCarrierID;
+    private String insuranceCarrierId;
 
     @JsonProperty("IKGesundheitskarte")
-    private String healthCardIK;
+    private String healthCardInstituionCode;
 
     @JsonProperty("VersicherungsNummer")
     private String insuranceNumber;
@@ -105,7 +105,7 @@ public class CustomerSearchFilter {
     private Boolean aid;
 
     @JsonProperty("AnTaubheitGrenzend")
-    private Boolean borderingDeafness;
+    private Boolean borderlineDeaf;
 
     @JsonProperty("Zuzahlungsbefreit")
     private Boolean coPaymentExempt;
@@ -120,28 +120,28 @@ public class CustomerSearchFilter {
     private OffsetDateTime healthCardValidUntil;
 
     @JsonProperty("Werbung")
-    private Boolean advertising;
+    private Boolean marketing;
 
     @JsonProperty("WerbungUnterschrieben")
-    private Boolean advertisingSigned;
+    private Boolean marketingSigned;
 
     @JsonProperty("WerbungTelefon")
-    private Boolean advertisingPhone;
+    private Boolean marketingPhone;
 
     @JsonProperty("WerbungPost")
-    private Boolean advertisingMail;
+    private Boolean marketingMail;
 
     @JsonProperty("WerbungEmail")
-    private Boolean advertisingEmail;
+    private Boolean marketingEmail;
 
     @JsonProperty("WerbungKeineGewuenscht")
-    private Boolean noAdvertisingDesired;
+    private Boolean noMarketingDesired;
 
     @JsonProperty("KeineWerbungDatum")
-    private OffsetDateTime noAdvertisingDate;
+    private OffsetDateTime noMarketingDate;
 
     @JsonProperty("GrundKeineWerbung")
-    private UUID reasonNoAdvertising;
+    private UUID reasonNoMarketing;
 
     @JsonProperty("DatenschutzAusgehaendigt")
     private Boolean privacyPolicyHandedOut;
@@ -159,7 +159,7 @@ public class CustomerSearchFilter {
     private OffsetDateTime lastVisit;
 
     @JsonProperty("NaechsteKontrolle")
-    private OffsetDateTime nextControl;
+    private OffsetDateTime nextCheckup;
 
     @JsonProperty("BetreuerAkustikKuerzel")
     private String acousticsConsultantShortcut;
@@ -174,22 +174,22 @@ public class CustomerSearchFilter {
     private String additionalInfo;
 
     @JsonProperty("NeuKundenGrundID")
-    private String newCustomerReasonID;
+    private String newCustomerReasonId;
 
     @JsonProperty("Freifeld1")
-    private String freeField1;
+    private String customField1;
 
     @JsonProperty("Freifeld2")
-    private String freeField2;
+    private String customField2;
 
     @JsonProperty("Freifeld3")
-    private String freeField3;
+    private String customField3;
 
     @JsonProperty("Freifeld4")
-    private String freeField4;
+    private String customField4;
 
     @JsonProperty("Freifeld5")
-    private String freeField5;
+    private String customField5;
 
     @JsonProperty("SMSTermin")
     private Boolean smsAppointment;
@@ -204,10 +204,10 @@ public class CustomerSearchFilter {
     private Boolean smsInstallmentPayment;
 
     @JsonProperty("SMSKontrolle")
-    private Boolean smsControl;
+    private Boolean smsCheckup;
 
     @JsonProperty("SMSWerbung")
-    private Boolean smsAdvertising;
+    private Boolean smsMarketing;
 
     @JsonProperty("SMSBestellungWE")
     private Boolean smsOrderWE;
@@ -222,31 +222,31 @@ public class CustomerSearchFilter {
     private Boolean smsNotDesired;
 
     @JsonProperty("SMSHatKeinHandy")
-    private Boolean smsNoMobile;
+    private Boolean smsNoMobilePhone;
 
     @JsonProperty("SMSBrilleAbholbereit")
     private Boolean smsGlassesReadyForPickup;
 
     @JsonProperty("SMSWarenversand")
-    private Boolean smsGoodsShipping;
+    private Boolean smsProductShipping;
 
     @JsonProperty("ArtDesKunden")
     private String customerType;
 
     @JsonProperty("ArztHNOID")
-    private String entDoctorID;
+    private String entDoctorId;
 
     @JsonProperty("ArztHausID")
-    private String generalPractitionerID;
+    private String generalPractitionerId;
 
     @JsonProperty("ArztAugenID")
-    private String eyeDoctorID;
+    private String ophthDoctorId;
 
     @JsonProperty("BetreuerID")
-    private String supervisorID;
+    private String supervisorId;
 
     @JsonProperty("BetreuerOptikID")
-    private String opticsSupervisorID;
+    private String opticsSupervisorId;
 
     @JsonProperty("InaktivDatum")
     private OffsetDateTime inactiveDate;

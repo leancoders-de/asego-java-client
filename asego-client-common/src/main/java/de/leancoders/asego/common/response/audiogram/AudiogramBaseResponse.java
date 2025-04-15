@@ -9,29 +9,29 @@ import java.util.List;
 @Data
 public abstract class AudiogramBaseResponse {
     @JsonProperty("KundeUid")
-    private String kundeUid;
+    private String customerUid;
 
     @JsonProperty("ParentUid")
     private String parentUid;
 
     @JsonProperty("Beschreibung")
-    private String beschreibung;
+    private String description;
 
     @JsonProperty("Typ")
-    private String typ;
+    private String type;
 
     @JsonProperty("Manuell")
-    private Boolean manuell;
+    private Boolean manual;
 
     @JsonProperty("Ohr")
-    private String ohr;
+    private String ear;
 
     @JsonProperty("Messungen")
-    private List<AudiogramMeasureItem> messungen;
+    private List<AudiogramMeasureItem> measurements;
 
     @JsonProperty("uid")
     private String uid;
 
     @JsonProperty("Datum")
-    private OffsetDateTime datum;
+    private OffsetDateTime date;
 }
