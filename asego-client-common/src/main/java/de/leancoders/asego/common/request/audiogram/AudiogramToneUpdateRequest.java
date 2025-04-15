@@ -11,36 +11,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public  class AudiogramToneUpdateRequest extends AudiogramBaseUpdateRequest {
+public class AudiogramToneUpdateRequest extends AudiogramBaseUpdateRequest {
 
     public AudiogramToneUpdateRequest() {
         super();
     }
 
-      
-    public static AudiogramToneUpdateRequest of(EAudiogramType type, Boolean manual, EEarType ear, Date date) {
+    public static AudiogramToneUpdateRequest of(EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        return request;
-    }
-
-    public static AudiogramToneUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date) {
-        AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
-        request.setParentId(parentId);
-        request.setDescription(description);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        return request;
-    }
-
-     public static AudiogramToneUpdateRequest of( EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
-
         request.setType(type);
         request.setManual(manual);
         request.setEar(ear);
@@ -49,29 +27,8 @@ public  class AudiogramToneUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramToneUpdateRequest of(UUID parentId,EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
-        request.setParentId(parentId);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        request.setMeasurements(measurements);
-        return request;
-    }
-
-    public static AudiogramToneUpdateRequest of(String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
-        request.setDescription(description);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        request.setMeasurements(measurements);
-        return request;
-    }
-
-    public static AudiogramToneUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
+    public static AudiogramToneUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, 
+                                                EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramToneUpdateRequest request = new AudiogramToneUpdateRequest();
         request.setParentId(parentId);
         request.setDescription(description);
@@ -82,5 +39,4 @@ public  class AudiogramToneUpdateRequest extends AudiogramBaseUpdateRequest {
         request.setMeasurements(measurements);
         return request;
     }
-
 }

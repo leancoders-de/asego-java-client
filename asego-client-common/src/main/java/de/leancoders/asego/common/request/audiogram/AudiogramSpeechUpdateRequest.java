@@ -18,30 +18,11 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         super();
     }
 
-      
-    public static AudiogramSpeechUpdateRequest of(EAudiogramType type, Boolean manual, EEarType ear, Date date) {
+    /**
+     * Factory method with required parameters only
+     */
+    public static AudiogramSpeechUpdateRequest of(EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        return request;
-    }
-
-    public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date) {
-        AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
-        request.setParentId(parentId);
-        request.setDescription(description);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        return request;
-    }
-
-     public static AudiogramSpeechUpdateRequest of( EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
-
         request.setType(type);
         request.setManual(manual);
         request.setEar(ear);
@@ -50,28 +31,9 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         return request;
     }
 
-    public static AudiogramSpeechUpdateRequest of(UUID parentId,EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
-        request.setParentId(parentId);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        request.setMeasurements(measurements);
-        return request;
-    }
-
-    public static AudiogramSpeechUpdateRequest of(String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
-        AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
-        request.setDescription(description);
-        request.setType(type);
-        request.setManual(manual);
-        request.setEar(ear);
-        request.setDate(date);
-        request.setMeasurements(measurements);
-        return request;
-    }
-
+    /**
+     * Factory method with all parameters
+     */
     public static AudiogramSpeechUpdateRequest of(UUID parentId, String description, EAudiogramType type, Boolean manual, EEarType ear, Date date, List<AudiogramMeasureItem> measurements) {
         AudiogramSpeechUpdateRequest request = new AudiogramSpeechUpdateRequest();
         request.setParentId(parentId);
@@ -83,6 +45,4 @@ public class AudiogramSpeechUpdateRequest extends AudiogramBaseUpdateRequest {
         request.setMeasurements(measurements);
         return request;
     }
-
-   
 }
