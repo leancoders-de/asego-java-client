@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 import java.util.UUID;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @AllArgsConstructor(staticName = "of")
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 public class AudiogramSearchFilter {
 
     @JsonProperty("KundenUid")
-    @Nonnull
+    @NonNull
     private UUID customerUid;
 
     @JsonProperty("Ton")

@@ -2,8 +2,8 @@ package de.leancoders.asego.common.response.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NonNull;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.UUID;
@@ -11,11 +11,11 @@ import java.util.UUID;
 @Data
 public class CustomerSearchListingItem {
 
-    @Nonnull
+    @NonNull
     @JsonProperty("uid")
     private String uid;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("Kundennummer")
     private Integer customerNumber;
 
@@ -111,23 +111,23 @@ public class CustomerSearchListingItem {
     @JsonProperty("GueltigBis")
     private Date validUntil;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("PrivatVersichert")
     private Boolean privatelyInsured;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("Beihilfe")
     private Boolean subsidyEligible;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("AnTaubheitGrenzend")
     private Boolean borderlineDeaf;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("Zuzahlungsbefreit")
     private Boolean coPaymentExempt;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("ZuzahlungsbefreitNein")
     private Boolean notCopaymentExempt;
 
@@ -147,27 +147,27 @@ public class CustomerSearchListingItem {
     @JsonProperty("LetzteAenderung")
     private Date lastModified;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("Werbung")
     private Boolean marketing;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("WerbungUnterschrieben")
     private Boolean marketingConsentSigned;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("WerbungTelefon")
     private Boolean marketingByPhone;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("WerbungPost")
     private Boolean marketingByMail;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("WerbungEmail")
     private Boolean marketingByEmail;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("WerbungKeineGewuenscht")
     private Boolean noMarketingWished;
 
@@ -179,11 +179,11 @@ public class CustomerSearchListingItem {
     @JsonProperty("GrundKeineWerbung")
     private UUID reasonNoMarketing;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("DatenschutzAusgehaendigt")
     private Boolean privacyPolicyHandedOver;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("DataloggingUnterschrieben")
     private Boolean dataLoggingConsentSigned;
 
@@ -243,55 +243,55 @@ public class CustomerSearchListingItem {
     @JsonProperty("Freifeld5")
     private String customField5;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSTermin")
     private Boolean smsAppointment;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSAuftragseingang")
     private Boolean smsOrderReceipt;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSMahnung")
     private Boolean smsReminder;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSRatenzahlung")
     private Boolean smsInstallmentPayment;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSKontrolle")
     private Boolean smsCheckup;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSWerbung")
     private Boolean smsMarketing;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSBestellungWE")
     private Boolean smsOrderWeekend;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSKABewilligung")
     private Boolean smsInsuranceApproval;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSGeburtstag")
     private Boolean smsBirthday;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSKeineGewuenscht")
     private Boolean smsNoneWished;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSHatKeinHandy")
     private Boolean smsNoMobilePhonePhone;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSBrilleAbholbereit")
     private Boolean smsGlassesReadyForPickup;
 
-    @Nonnull
+    @NonNull
     @JsonProperty("SMSWarenversand")
     private Boolean smsProductShipment;
 

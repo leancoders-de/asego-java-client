@@ -2,13 +2,13 @@ package de.leancoders.asego.common.response.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NonNull;
 import javax.annotation.Nullable;
-import javax.annotation.Nonnull;
 
 @Data
 public class DoctorListItem {
 
-    @Nonnull
+    @NonNull
     @JsonProperty("uid")
     private String uid;
 
