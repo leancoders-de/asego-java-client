@@ -24,5 +24,11 @@ public interface AsegoPaths {
     String INSURANCE__LIST = INSURANCE_V1_BASE + "Suche/";
     String INSURANCE__GET_BY_ID = INSURANCE_V1_BASE + "{uuid}/";
 
+    String DOCTOR_V1_BASE = "/v1/Arzt/";
+    String DOCTOR__LIST = DOCTOR_V1_BASE + "Suche/";
+    String DOCTOR__GET_BY_ID = DOCTOR_V1_BASE + "{uuid}/";
+    String DOCTOR__CREATE = DOCTOR_V1_BASE + "Create/";
+    String DOCTOR__UPDATE_BY_ID = DOCTOR_V1_BASE + "{uuid}/";
+
 
 }

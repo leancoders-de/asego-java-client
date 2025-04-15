@@ -60,6 +60,10 @@ public class AsegoClientService {
         return new InsuranceClientService(config, asegoAuthContext);
     }
 
+    @Nonnull
+    public DoctorClientService doctors() {
+        return new DoctorClientService(config, asegoAuthContext);
+    }
 
     @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
