@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.leancoders.asego.common.request.DateTimeParameter;
 import lombok.Data;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,7 +60,7 @@ public class CustomerSearchFilter {
     private String country;
 
     @JsonProperty("Geburtsdatum")
-    private OffsetDateTime birthDate;
+    private Date birthDate;
 
     @JsonProperty("Tel")
     private String phone;
@@ -96,7 +96,7 @@ public class CustomerSearchFilter {
     private String fileReference;
 
     @JsonProperty("GueltigBis")
-    private OffsetDateTime validUntil;
+    private Date validUntil;
 
     @JsonProperty("PrivatVersichert")
     private Boolean privatelyInsured;
@@ -114,10 +114,10 @@ public class CustomerSearchFilter {
     private Boolean notCoPaymentExempt;
 
     @JsonProperty("ZuzahlungsbefreitBis")
-    private OffsetDateTime coPaymentExemptUntil;
+    private Date coPaymentExemptUntil;
 
     @JsonProperty("GesundheitskarteGueltigBis")
-    private OffsetDateTime healthCardValidUntil;
+    private Date healthCardValidUntil;
 
     @JsonProperty("Werbung")
     private Boolean marketing;
@@ -138,7 +138,7 @@ public class CustomerSearchFilter {
     private Boolean noMarketingDesired;
 
     @JsonProperty("KeineWerbungDatum")
-    private OffsetDateTime noMarketingDate;
+    private Date noMarketingDate;
 
     @JsonProperty("GrundKeineWerbung")
     private UUID reasonNoMarketing;
@@ -150,16 +150,16 @@ public class CustomerSearchFilter {
     private Boolean dataLoggingSigned;
 
     @JsonProperty("LetztesHoergeraetR")
-    private OffsetDateTime lastHearingAidRight;
+    private Date lastHearingAidRight;
 
     @JsonProperty("LetztesHoergeraetL")
-    private OffsetDateTime lastHearingAidLeft;
+    private Date lastHearingAidLeft;
 
     @JsonProperty("LetzterBesuch")
-    private OffsetDateTime lastVisit;
+    private Date lastVisit;
 
     @JsonProperty("NaechsteKontrolle")
-    private OffsetDateTime nextCheckup;
+    private Date nextCheckup;
 
     @JsonProperty("BetreuerAkustikKuerzel")
     private String acousticsConsultantShortcut;
@@ -249,7 +249,7 @@ public class CustomerSearchFilter {
     private String opticsSupervisorId;
 
     @JsonProperty("InaktivDatum")
-    private OffsetDateTime inactiveDate;
+    private Date inactiveDate;
 
     @JsonProperty("GrundInaktiv")
     private UUID reasonInactive;
