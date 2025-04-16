@@ -3,9 +3,11 @@ package de.leancoders.asego.common.response.doctor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.NoArgsConstructor;
 import javax.annotation.Nullable;
 
 @Data
+@NoArgsConstructor
 public class DoctorListItem {
 
     @NonNull
@@ -75,5 +77,5 @@ public class DoctorListItem {
     @Nullable
     @JsonProperty("Fachgebiet")
     private String specialty;
-    
+
 }

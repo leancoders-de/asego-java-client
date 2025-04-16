@@ -2,8 +2,10 @@ package de.leancoders.asego.common.response.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class DoctorResponse {
 
     @JsonProperty("uid")

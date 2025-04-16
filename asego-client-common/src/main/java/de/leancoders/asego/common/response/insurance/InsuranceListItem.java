@@ -2,17 +2,15 @@ package de.leancoders.asego.common.response.insurance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-@RequiredArgsConstructor(staticName = "of")
-@AllArgsConstructor(staticName = "of")
+@NoArgsConstructor
 @Data
 public class InsuranceListItem {
 

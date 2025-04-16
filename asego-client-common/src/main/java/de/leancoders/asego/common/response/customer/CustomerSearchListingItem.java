@@ -1,13 +1,16 @@
 package de.leancoders.asego.common.response.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.UUID;
 
+@NoArgsConstructor
 @Data
 public class CustomerSearchListingItem {
 
