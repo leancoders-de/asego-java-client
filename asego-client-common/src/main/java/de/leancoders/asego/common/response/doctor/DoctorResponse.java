@@ -3,13 +3,14 @@ package de.leancoders.asego.common.response.doctor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 public class DoctorResponse {
 
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("Suchbegriff")
     private String searchTerm;

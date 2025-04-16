@@ -8,6 +8,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(staticName = "of")
@@ -16,7 +17,7 @@ public class DoctorUpdateRequest {
 
     @Nullable
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @Nullable
     @JsonProperty("Suchbegriff")

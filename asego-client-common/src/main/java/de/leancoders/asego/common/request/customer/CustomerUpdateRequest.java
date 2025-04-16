@@ -8,6 +8,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 @AllArgsConstructor(staticName = "of")
@@ -99,7 +100,7 @@ public class CustomerUpdateRequest {
     private String customField5;
 
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("HearooApp")
     private Boolean hearooApp;

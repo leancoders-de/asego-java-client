@@ -6,15 +6,16 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 public abstract class AudiogramBaseResponse {
     @JsonProperty("KundeUid")
-    private String customerUid;
+    private UUID customerUid;
 
     @JsonProperty("ParentUid")
-    private String parentUid;
+    private UUID parentUid;
 
     @JsonProperty("Beschreibung")
     private String description;
@@ -32,7 +33,7 @@ public abstract class AudiogramBaseResponse {
     private List<AudiogramMeasureItem> measurements;
 
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("Datum")
     private Date date;

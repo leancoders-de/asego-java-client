@@ -16,7 +16,7 @@ public class CustomerSearchListingItem {
 
     @NonNull
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @NonNull
     @JsonProperty("Kundennummer")

@@ -1,6 +1,7 @@
 package de.leancoders.asego.common.request.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ public class DoctorSearchFilter {
     private Boolean inactive;
 
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("Suchbegriff")
     private String searchTerm;

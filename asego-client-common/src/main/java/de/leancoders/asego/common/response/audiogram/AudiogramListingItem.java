@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
 
@@ -24,7 +25,7 @@ public class AudiogramListingItem {
 
     @NonNull
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @NonNull
     @JsonProperty("Tone")

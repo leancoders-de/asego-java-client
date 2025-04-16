@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.NoArgsConstructor;
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +13,7 @@ public class DoctorListItem {
 
     @NonNull
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @Nullable
     @JsonProperty("Suchbegriff")

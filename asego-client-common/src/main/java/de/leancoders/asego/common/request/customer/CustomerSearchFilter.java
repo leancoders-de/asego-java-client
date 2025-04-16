@@ -24,7 +24,7 @@ public class CustomerSearchFilter {
     private DateTimeParameter creationDate;
 
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("Kundennummer")
     private Integer customerNumber;
