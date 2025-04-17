@@ -25,7 +25,7 @@ import static de.leancoders.asego.client.services.AsegoPaths.CUSTOMERS__UPDATE_B
 public class CustomerClientService extends BaseClientService {
 
     public CustomerClientService(@Nonnull final AsegoConfig config,
-                                 @NonNull final AsegoAuthContext asegoAuthContext) {
+            @NonNull final AsegoAuthContext asegoAuthContext) {
         super(config, asegoAuthContext);
     }
 
@@ -33,92 +33,76 @@ public class CustomerClientService extends BaseClientService {
     public CreatedElementResponse create(@Nonnull final CustomerUpdateRequest updateRequest) {
 
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(updateRequest)
-            .log().all()
-            .expect().statusCode(201)
-            .log().all()
-            .when()
-            .post(CUSTOMERS__CREATE)
-            .as(CreatedElementResponse.class);
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(updateRequest)
+                .log().all()
+                .expect().statusCode(201)
+                .log().all()
+                .when()
+                .post(CUSTOMERS__CREATE)
+                .as(CreatedElementResponse.class);
     }
 
     @Nonnull
     public Response update(@Nonnull final UUID uuid,
-                                         @Nonnull final CustomerUpdateRequest updateRequest) {
+            @Nonnull final CustomerUpdateRequest updateRequest) {
 
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(updateRequest)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .put(CUSTOMERS__UPDATE_BY_ID, uuid);
-            
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(updateRequest)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .put(CUSTOMERS__UPDATE_BY_ID, uuid);
+
     }
 
     @Nonnull
     public CustomerResponse getById(@Nonnull final UUID uuid) {
 
         return request()
-            .accept(ContentType.JSON)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .get(CUSTOMERS__GET_BY_ID, uuid)
-            .as(CustomerResponse.class);
+                .accept(ContentType.JSON)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .get(CUSTOMERS__GET_BY_ID, uuid)
+                .as(CustomerResponse.class);
     }
 
     @Nonnull
     public CustomerSearchResponse searchByEmail(@Nullable final UUID searchToken,
-                                                final int page,
-                                                final int size,
-                                                @Nonnull final String email) {
+            final int page,
+            final int size,
+            @Nonnull final String email) {
 
-        final CustomerSearchFilter searchFilter = new CustomerSearchFilter();
+        final CustomerSearchFilter searchFilter = CustomerSearchFilter.of();
         searchFilter.setEmail(email);
-
-        final CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
-        final PageParameter list = new PageParameter();
-        list.setSearchToken(searchToken);
-        list.setPageIndex(page);
-        list.setLimit(size);
-        customerSearchRequest.setList(list);
-        customerSearchRequest.setSearch(searchFilter);
 
         return search(searchToken, page, size, searchFilter);
     }
 
     @Nonnull
     public CustomerSearchResponse search(@Nullable final UUID searchToken,
-                                         final int page,
-                                         final int size,
-                                         @Nonnull final CustomerSearchFilter customerSearchFilter) {
+            final int page,
+            final int size,
+            @Nonnull final CustomerSearchFilter customerSearchFilter) {
 
-        final CustomerSearchRequest customerSearchRequest = new CustomerSearchRequest();
-        final PageParameter list = new PageParameter();
-        list.setSearchToken(searchToken);
-        list.setPageIndex(page);
-        list.setLimit(size);
-        customerSearchRequest.setList(list);
-        customerSearchRequest.setSearch(customerSearchFilter);
-
+        final PageParameter list = PageParameter.of(searchToken, size, page);
+        final CustomerSearchRequest customerSearchRequest = CustomerSearchRequest.of(null, list, customerSearchFilter);
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(customerSearchRequest)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .post(CUSTOMERS__LIST)
-            .as(CustomerSearchResponse.class);
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(customerSearchRequest)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .post(CUSTOMERS__LIST)
+                .as(CustomerSearchResponse.class);
     }
 
-
 }
-

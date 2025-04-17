@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "of")
 @Data
 public class PageParameter {
 

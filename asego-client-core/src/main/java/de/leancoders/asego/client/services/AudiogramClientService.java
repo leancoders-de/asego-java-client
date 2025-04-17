@@ -29,107 +29,103 @@ import static de.leancoders.asego.client.services.AsegoPaths.AUDIOGRAM__TONE_GET
 public class AudiogramClientService extends BaseClientService {
 
     public AudiogramClientService(@Nonnull final AsegoConfig config,
-                                  @NonNull final AsegoAuthContext asegoAuthContext) {
+            @NonNull final AsegoAuthContext asegoAuthContext) {
         super(config, asegoAuthContext);
     }
 
     @Nonnull
     public CreatedElementResponse createSpeech(@NonNull final UUID customerUUID,
-                                         @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
+            @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
 
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(updateRequest)
-            .log().all()
-            .expect().statusCode(201)
-            .log().all()
-            .when()
-            .post(AUDIOGRAM__CUSTOMER_SPEECH_CREATE, customerUUID)
-            .as(CreatedElementResponse.class);
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(updateRequest)
+                .log().all()
+                .expect().statusCode(201)
+                .log().all()
+                .when()
+                .post(AUDIOGRAM__CUSTOMER_SPEECH_CREATE, customerUUID)
+                .as(CreatedElementResponse.class);
     }
 
     @Nonnull
     public CreatedElementResponse createTone(@NonNull final UUID customerUUID,
-                                         @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
+            @Nonnull final AudiogramBaseUpdateRequest updateRequest) {
 
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(updateRequest)
-            .log().all()
-            .expect().statusCode(201)
-            .log().all()
-            .when()
-            .post(AUDIOGRAM__CUSTOMER_TONE_CREATE, customerUUID)
-            .as(CreatedElementResponse.class);
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(updateRequest)
+                .log().all()
+                .expect().statusCode(201)
+                .log().all()
+                .when()
+                .post(AUDIOGRAM__CUSTOMER_TONE_CREATE, customerUUID)
+                .as(CreatedElementResponse.class);
     }
 
-    
     @Nonnull
     public AudiogramSearchResponse search(@Nullable final UUID searchToken,
-                                          final int page,
-                                          final int size,
-                                          @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
+            final int page,
+            final int size,
+            @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
 
-        final AudiogramSearchRequest searchRequest = new AudiogramSearchRequest();
-        final PageParameter list = new PageParameter();
-        list.setSearchToken(searchToken);
-        list.setPageIndex(page);
-        list.setLimit(size);
-        searchRequest.setList(list);
-        searchRequest.setSearch(audiogramSearchFilter);
+        final PageParameter list = PageParameter.of(searchToken, size, page);
+        final AudiogramSearchRequest searchRequest = AudiogramSearchRequest.of(null, list, audiogramSearchFilter);
 
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .body(searchRequest)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .post(AUDIOGRAM__LIST)
-            .as(AudiogramSearchResponse.class);
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(searchRequest)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .post(AUDIOGRAM__LIST)
+                .as(AudiogramSearchResponse.class);
     }
 
     @NonNull
     public List<AudiogramListingItem> getByCustomer(@NonNull final UUID customerUUID) {
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .get(AUDIOGRAM__GET_BY_CUSTOMER_ID, customerUUID)
-            .as(new TypeRef<List<AudiogramListingItem>>(){});
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .get(AUDIOGRAM__GET_BY_CUSTOMER_ID, customerUUID)
+                .as(new TypeRef<List<AudiogramListingItem>>() {
+                });
     }
 
     @NonNull
     public List<AudiogramListingItem> getSpeechById(@NonNull final UUID audiogramUuid) {
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .get(AUDIOGRAM__SPEECH_GET_BY_ID, audiogramUuid)
-            .as(new TypeRef<List<AudiogramListingItem>>(){});
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .get(AUDIOGRAM__SPEECH_GET_BY_ID, audiogramUuid)
+                .as(new TypeRef<List<AudiogramListingItem>>() {
+                });
     }
 
     @NonNull
     public List<AudiogramListingItem> getToneById(@NonNull final UUID audiogramUuid) {
         return request()
-            .contentType(ContentType.JSON)
-            .accept(ContentType.JSON)
-            .log().all()
-            .expect().statusCode(200)
-            .log().all()
-            .when()
-            .get(AUDIOGRAM__TONE_GET_BY_ID, audiogramUuid)
-            .as(new TypeRef<List<AudiogramListingItem>>(){});
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .get(AUDIOGRAM__TONE_GET_BY_ID, audiogramUuid)
+                .as(new TypeRef<List<AudiogramListingItem>>() {
+                });
     }
 
 }
-

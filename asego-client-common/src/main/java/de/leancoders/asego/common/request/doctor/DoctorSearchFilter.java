@@ -6,8 +6,10 @@ import javax.annotation.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor(staticName = "of")
+@NoArgsConstructor(staticName = "of")
 @Data
 public class DoctorSearchFilter {
 
