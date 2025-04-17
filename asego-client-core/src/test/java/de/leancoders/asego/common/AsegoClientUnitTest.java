@@ -1,7 +1,5 @@
 package de.leancoders.asego.common;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
 import lombok.extern.log4j.Log4j2;
@@ -23,7 +21,6 @@ public class AsegoClientUnitTest {
             "https://localhost/",
             444
         );
-    private static final ObjectMapper OBJECT_MAPPER = ObjectMapperFactory.createDefaultObjectMapper();
 
     @Test
     public void test_login() {

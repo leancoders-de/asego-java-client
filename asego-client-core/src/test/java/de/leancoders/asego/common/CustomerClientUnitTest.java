@@ -1,7 +1,5 @@
 package de.leancoders.asego.common;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import de.leancoders.asego.client.helper.jackson.ObjectMapperFactory;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
@@ -30,7 +28,6 @@ public class CustomerClientUnitTest {
             "https://localhost/",
             444
         );
-    private static final ObjectMapper OBJECT_MAPPER = ObjectMapperFactory.createDefaultObjectMapper();
 
     private AsegoClientService clientService;
 
