@@ -2,7 +2,6 @@ package de.leancoders.asego.common.request.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import de.leancoders.asego.common.request.DateTimeParameter;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor(staticName = "of")
 @NoArgsConstructor(staticName = "of")
 @Data
 public class CustomerSearchFilter {

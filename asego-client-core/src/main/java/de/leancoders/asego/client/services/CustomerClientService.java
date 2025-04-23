@@ -91,7 +91,10 @@ public class CustomerClientService extends BaseClientService {
             final int size,
             @Nonnull final CustomerSearchFilter customerSearchFilter) {
 
-        final PageParameter list = PageParameter.of(searchToken, size, page);
+        final PageParameter list = PageParameter.of();
+        list.setSearchToken(searchToken);
+        list.setLimit(size);
+        list.setPageIndex(page);
         final CustomerSearchRequest customerSearchRequest = CustomerSearchRequest.of(null, list, customerSearchFilter);
         return request()
                 .contentType(ContentType.JSON)

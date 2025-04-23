@@ -2,7 +2,6 @@ package de.leancoders.asego.common.request.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +10,6 @@ import javax.annotation.Nullable;
 import java.util.UUID;
 
 @RequiredArgsConstructor(staticName = "of")
-@AllArgsConstructor(staticName = "of")
 @Data
 public class DoctorUpdateRequest {
 

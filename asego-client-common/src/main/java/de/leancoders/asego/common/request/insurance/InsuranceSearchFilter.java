@@ -5,11 +5,9 @@ import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.Nullable;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor(staticName = "of")
 @NoArgsConstructor(staticName = "of")
 @Data
 public class InsuranceSearchFilter {

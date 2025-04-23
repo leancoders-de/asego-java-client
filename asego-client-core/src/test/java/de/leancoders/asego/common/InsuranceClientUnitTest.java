@@ -33,7 +33,7 @@ public class InsuranceClientUnitTest {
 
     @Test
     public void test_insurance_search() {
-        final InsuranceSearchFilter insuranceSearchFilter = InsuranceSearchFilter.of(null, null, null, PASSWORD, PASSWORD, USERNAME, PASSWORD, PASSWORD, PASSWORD, PASSWORD, PASSWORD, USERNAME, PASSWORD);
+        final InsuranceSearchFilter insuranceSearchFilter = InsuranceSearchFilter.of();
         
         final var insurance = clientService
             .insurance()

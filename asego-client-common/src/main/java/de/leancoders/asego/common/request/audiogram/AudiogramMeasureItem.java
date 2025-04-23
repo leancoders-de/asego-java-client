@@ -4,11 +4,11 @@ package de.leancoders.asego.common.request.audiogram;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.leancoders.asego.common.model.audiogram.EMessureItemType;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor(staticName = "of")
+@RequiredArgsConstructor(staticName = "of")
 @Data
 public class AudiogramMeasureItem {
 

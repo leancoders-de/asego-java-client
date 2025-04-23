@@ -71,7 +71,10 @@ public class AudiogramClientService extends BaseClientService {
             final int size,
             @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
 
-        final PageParameter list = PageParameter.of(searchToken, size, page);
+        final PageParameter list = PageParameter.of();
+        list.setLimit(size);
+        list.setPageIndex(page);
+        list.setSearchToken(searchToken);
         final AudiogramSearchRequest searchRequest = AudiogramSearchRequest.of(null, list, audiogramSearchFilter);
 
         return request()
