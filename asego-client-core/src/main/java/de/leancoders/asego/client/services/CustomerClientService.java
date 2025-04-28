@@ -44,19 +44,18 @@ public class CustomerClientService extends BaseClientService {
                 .as(CreatedElementResponse.class);
     }
 
-    @Nonnull
-    public Response update(@Nonnull final UUID uuid,
+    public void update(@Nonnull final UUID uuid,
             @Nonnull final CustomerUpdateRequest updateRequest) {
 
-        return request()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(updateRequest)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .put(CUSTOMERS__UPDATE_BY_ID, uuid);
+        request()
+            .contentType(ContentType.JSON)
+            .accept(ContentType.JSON)
+            .body(updateRequest)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .put(CUSTOMERS__UPDATE_BY_ID, uuid);
 
     }
 

@@ -50,10 +50,9 @@ public class DoctorClientService extends BaseClientService {
                 .as(CreatedElementResponse.class);
         }
 
-        @Nonnull
-        public Response update(@Nonnull final String uuid,
+        public void update(@Nonnull final UUID uuid,
                                           @Nonnull final DoctorUpdateRequest doctor) {
-            return request()
+            request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body(doctor)

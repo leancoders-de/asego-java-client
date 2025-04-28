@@ -22,12 +22,10 @@ public class CustomerClientUnitTest {
     private static final String PASSWORD = "XxyL8X1GT6";
     private static final String CUSTOMER_EMAIL = "test@test.de";
     private static final UUID UID = UUID.fromString("53290761-F5D4-4990-AAB2-0CDEAEF30325");
-    
-    public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
-        AsegoConfig.of(
+
+    public static final AsegoConfig ASEGO_CONFIG_DEFAULT = AsegoConfig.of(
             "https://localhost/",
-            444
-        );
+            444);
 
     private AsegoClientService clientService;
 
@@ -39,8 +37,7 @@ public class CustomerClientUnitTest {
 
     @Test
     public void test_customers_searchByMail() {
-        final CustomerSearchResponse customers =
-            clientService
+        final CustomerSearchResponse customers = clientService
                 .customers()
                 .searchByEmail(null, 0, 10, CUSTOMER_EMAIL);
 
@@ -49,8 +46,7 @@ public class CustomerClientUnitTest {
 
     @Test
     public void test_customers_getById() {
-        final CustomerResponse customers =
-            clientService
+        final CustomerResponse customers = clientService
                 .customers()
                 .getById(UID);
         System.out.println("customers = " + customers);
@@ -59,34 +55,31 @@ public class CustomerClientUnitTest {
     @Test
     public void test_customers_update() {
         CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
-            "Test", 
-            "Test", 
-            Date.from(Instant.parse("1990-01-01T00:00:00Z")),
-            CUSTOMER_EMAIL, 
-            "Strasse 1", 
-            "12345",
-            "Teststadt");
+                "Test",
+                "Test",
+                Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+                CUSTOMER_EMAIL,
+                "Strasse 1",
+                "12345",
+                "Teststadt");
 
-        final Response response =
-            clientService
+        clientService
                 .customers()
                 .update(UID, customerUpdateRequest);
-        System.out.println("response = " + response.statusCode());
     }
 
     @Test
     public void test_customers_create() {
         CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
-            "Test", 
-            "Test", 
-            Date.from(Instant.parse("1990-01-01T00:00:00Z")),
-            CUSTOMER_EMAIL, 
-            "Strasse 1", 
-            "12345",
-            "Teststadt");
+                "Test",
+                "Test",
+                Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+                CUSTOMER_EMAIL,
+                "Strasse 1",
+                "12345",
+                "Teststadt");
 
-        final CreatedElementResponse customer =
-            clientService
+        final CreatedElementResponse customer = clientService
                 .customers()
                 .create(customerUpdateRequest);
         System.out.println("customer = " + customer);

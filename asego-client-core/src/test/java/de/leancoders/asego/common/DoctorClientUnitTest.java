@@ -17,17 +17,14 @@ import io.restassured.response.Response;
 
 @Log4j
 public class DoctorClientUnitTest {
-    
+
     private static final String USERNAME = "test";
     private static final String PASSWORD = "XxyL8X1GT6";
     private static final UUID UID = UUID.fromString("b19788aa-3d76-45c5-84d1-2ece3f6319ad");
-    
-    
-    public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
-        AsegoConfig.of(
+
+    public static final AsegoConfig ASEGO_CONFIG_DEFAULT = AsegoConfig.of(
             "https://localhost/",
-            444
-        );
+            444);
 
     private AsegoClientService clientService;
 
@@ -37,43 +34,41 @@ public class DoctorClientUnitTest {
         clientService.login(USERNAME, PASSWORD);
     }
 
-    @Test 
+    @Test
     public void test_doctor_search() {
 
         final DoctorSearchFilter doctorSearchFilter = DoctorSearchFilter.of();
         final DoctorSearchResponse doctors = clientService
-            .doctors()
-            .search(null, 0, 10, doctorSearchFilter);
+                .doctors()
+                .search(null, 0, 10, doctorSearchFilter);
         System.out.println("doctors = " + doctors);
     }
 
     @Test
     public void test_doctor_get_by_id() {
         final DoctorResponse doctor = clientService
-            .doctors()
-            .getById(UID);
+                .doctors()
+                .getById(UID);
         System.out.println("doctor = " + doctor);
     }
 
     @Test
     public void test_doctor_create() {
         final DoctorUpdateRequest doctorUpdateRequest = DoctorUpdateRequest.of(
-            "John", "Doe", "Cardiology"
-        );
+                "John", "Doe", "Cardiology");
         final CreatedElementResponse doctor = clientService
-            .doctors()
-            .create(doctorUpdateRequest);
+                .doctors()
+                .create(doctorUpdateRequest);
         System.out.println("doctor = " + doctor);
     }
 
-    @Test 
+    @Test
     public void test_doctor_update() {
         final DoctorUpdateRequest doctorUpdateRequest = DoctorUpdateRequest.of(
-            "Cardiology", "John", "Doe" );
-        final Response doctor = clientService
-            .doctors()
-            .update(UID.toString(), doctorUpdateRequest);
-        System.out.println("doctor = " + doctor);
+                "Cardiology", "John", "Doe");
+        clientService
+                .doctors()
+                .update(UID, doctorUpdateRequest);
     }
 
 }
