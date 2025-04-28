@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.common.request.insurance.InsuranceSearchFilter;
-import de.leancoders.asego.common.response.insurance.Insurance;
+import de.leancoders.asego.common.response.insurance.InsuranceResponse;
 import de.leancoders.asego.common.response.insurance.InsuranceSearchResponse;
 import io.restassured.http.ContentType;
 
@@ -35,7 +35,7 @@ public class InsuranceClientService extends BaseClientService {
     }
 
     @Nonnull
-    public Insurance getById(@Nonnull final UUID uuid) {
+    public InsuranceResponse getById(@Nonnull final UUID uuid) {
         return request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
@@ -44,7 +44,7 @@ public class InsuranceClientService extends BaseClientService {
                 .log().all()
                 .when()
                 .get(AsegoPaths.INSURANCE__GET_BY_ID, uuid)
-                .as(Insurance.class);
+                .as(InsuranceResponse.class);
     }
 
 }

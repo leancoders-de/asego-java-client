@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @NoArgsConstructor
 @Data
-public class Insurance {
+public class InsuranceResponse {
 
     @JsonProperty("uid")
     private UUID uid;
