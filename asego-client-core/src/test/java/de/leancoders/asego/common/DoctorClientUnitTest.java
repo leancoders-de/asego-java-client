@@ -13,7 +13,6 @@ import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.doctor.DoctorResponse;
 import de.leancoders.asego.common.response.doctor.DoctorSearchResponse;
 import groovy.util.logging.Log4j;
-import io.restassured.response.Response;
 
 @Log4j
 public class DoctorClientUnitTest {

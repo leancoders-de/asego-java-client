@@ -13,7 +13,6 @@ import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.doctor.DoctorResponse;
 import de.leancoders.asego.common.response.doctor.DoctorSearchResponse;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import lombok.NonNull;
 
 public class DoctorClientService extends BaseClientService {

@@ -6,7 +6,6 @@ import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
-import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

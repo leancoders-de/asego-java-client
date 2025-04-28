@@ -10,7 +10,6 @@ import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import lombok.NonNull;
 
 import javax.annotation.Nonnull;
