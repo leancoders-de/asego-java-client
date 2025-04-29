@@ -1,6 +1,8 @@
 package de.leancoders.asego.common.response.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import de.leancoders.asego.common.model.doctor.EDoctorType;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.NoArgsConstructor;
@@ -78,5 +80,21 @@ public class DoctorListItem {
     @Nullable
     @JsonProperty("Fachgebiet")
     private String specialty;
+
+    @NonNull
+    @JsonProperty("Typ")
+    private EDoctorType doctorType;
+    
+    @NonNull
+    @JsonProperty("Ohrenarzt")
+    private Boolean isENTDoctor;
+    
+    @NonNull
+    @JsonProperty("Augenarzt")
+    private Boolean isEyeDoctor;
+    
+    @NonNull
+    @JsonProperty("Hausarzt")
+    private Boolean isPrimaryDoctor;
 
 }
