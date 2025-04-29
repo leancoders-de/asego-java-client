@@ -7,9 +7,12 @@ import javax.annotation.Nullable;
 
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
+import de.leancoders.asego.common.request.PageParameter;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
+import de.leancoders.asego.common.request.doctor.DoctorSearchRequest;
 import de.leancoders.asego.common.request.doctor.DoctorUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
+import de.leancoders.asego.common.response.doctor.DoctorListItem;
 import de.leancoders.asego.common.response.doctor.DoctorResponse;
 import de.leancoders.asego.common.response.doctor.DoctorSearchResponse;
 import io.restassured.http.ContentType;
@@ -68,10 +71,18 @@ public class DoctorClientService extends BaseClientService {
                                           final int page,
                                           final int size,
                                           @Nonnull final DoctorSearchFilter doctorSearchFilter) {
+            
+            PageParameter pageParameter = PageParameter.of(); 
+            pageParameter.setSearchToken(searchToken);
+            pageParameter.setPageIndex(page);
+            pageParameter.setLimit(size);                               
+            
+            DoctorSearchRequest request = DoctorSearchRequest.of(null, pageParameter , doctorSearchFilter) ;                               
+
             return request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body(doctorSearchFilter)
+                .body(request)
                 .log().all()
                 .expect().statusCode(200)
                 .log().all()
@@ -79,6 +90,5 @@ public class DoctorClientService extends BaseClientService {
                 .post(AsegoPaths.DOCTOR__LIST)
                 .as(DoctorSearchResponse.class);
         }
-        
-    
+               
 }
