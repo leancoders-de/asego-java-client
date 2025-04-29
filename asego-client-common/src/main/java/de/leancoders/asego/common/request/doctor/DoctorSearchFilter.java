@@ -1,6 +1,9 @@
 package de.leancoders.asego.common.request.doctor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import de.leancoders.asego.common.model.doctor.EDoctorType;
+
 import java.util.UUID;
 import javax.annotation.Nullable;
 
@@ -89,18 +92,18 @@ public class DoctorSearchFilter {
     
     @Nullable
     @JsonProperty("Typ")
-    private Integer typeId;
+    private EDoctorType doctorType; 
     
     @Nullable
     @JsonProperty("Ohrenarzt")
-    private Boolean entDoctor;
+    private Boolean isENTDoctor;
     
     @Nullable
     @JsonProperty("Augenarzt")
-    private Boolean eyeDoctor;
+    private Boolean isEyeDoctor;
     
     @Nullable
     @JsonProperty("Hausarzt")
-    private Boolean generalPractitioner;
+    private Boolean isPrimaryDoctor;
 
 }
