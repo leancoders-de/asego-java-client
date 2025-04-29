@@ -90,5 +90,19 @@ public class DoctorClientService extends BaseClientService {
                 .post(AsegoPaths.DOCTOR__LIST)
                 .as(DoctorSearchResponse.class);
         }
-               
+
+        @Nullable
+        public DoctorListItem findByDoctorNumber(@Nonnull final String doctornumber) {
+            DoctorSearchFilter filter = DoctorSearchFilter.of();
+            filter.setDoctorNumber(doctornumber);
+            DoctorSearchResponse response = search(null, 0, 1, filter );
+
+            if (response.getItems().isEmpty()) {
+                return null;
+            }
+            
+            return response.getItems().get(0);
+        }
+        
+    
 }

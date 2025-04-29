@@ -10,6 +10,7 @@ import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
 import de.leancoders.asego.common.request.doctor.DoctorUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
+import de.leancoders.asego.common.response.doctor.DoctorListItem;
 import de.leancoders.asego.common.response.doctor.DoctorResponse;
 import de.leancoders.asego.common.response.doctor.DoctorSearchResponse;
 import groovy.util.logging.Log4j;
@@ -20,6 +21,7 @@ public class DoctorClientUnitTest {
     private static final String USERNAME = "test";
     private static final String PASSWORD = "XxyL8X1GT6";
     private static final UUID UID = UUID.fromString("b19788aa-3d76-45c5-84d1-2ece3f6319ad");
+    private static final String DOCTOR_NUMBER = "669208619";
 
     public static final AsegoConfig ASEGO_CONFIG_DEFAULT = AsegoConfig.of(
             "https://localhost/",
@@ -68,6 +70,14 @@ public class DoctorClientUnitTest {
         clientService
                 .doctors()
                 .update(UID, doctorUpdateRequest);
+    }
+
+    @Test 
+    public void test_doctor_find_by_doctor_number() {
+        final DoctorListItem doctor = clientService
+                .doctors()
+                .findByDoctorNumber(DOCTOR_NUMBER);
+        System.out.println("doctor = " + doctor);
     }
 
 }
