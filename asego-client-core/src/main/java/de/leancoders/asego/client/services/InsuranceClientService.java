@@ -7,7 +7,9 @@ import javax.annotation.Nullable;
 
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
+import de.leancoders.asego.common.request.PageParameter;
 import de.leancoders.asego.common.request.insurance.InsuranceSearchFilter;
+import de.leancoders.asego.common.request.insurance.InsuranceSearchRequest;
 import de.leancoders.asego.common.response.insurance.InsuranceResponse;
 import de.leancoders.asego.common.response.insurance.InsuranceSearchResponse;
 import io.restassured.http.ContentType;
@@ -21,11 +23,19 @@ public class InsuranceClientService extends BaseClientService {
     @Nonnull
     public InsuranceSearchResponse search(@Nullable final UUID searchToken, final int page, final int size,
             @Nonnull final InsuranceSearchFilter insuranceSearchFilter) {
-                
+        
+        PageParameter pageParameter = PageParameter.of();
+        pageParameter.setSearchToken(searchToken);
+        pageParameter.setPageIndex(page);
+        pageParameter.setLimit(size);
+
+
+        InsuranceSearchRequest insuranceSearchRequest = InsuranceSearchRequest.of(null, pageParameter, insuranceSearchFilter);
+
         return request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body(insuranceSearchFilter)
+                .body(insuranceSearchRequest)
                 .log().all()
                 .expect().statusCode(200)
                 .log().all()
