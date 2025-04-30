@@ -1,5 +1,6 @@
 package de.leancoders.asego.client.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
@@ -7,6 +8,8 @@ import javax.annotation.Nullable;
 
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
+import de.leancoders.asego.common.model.page.Page;
+import de.leancoders.asego.common.request.OrderItem;
 import de.leancoders.asego.common.request.PageParameter;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
 import de.leancoders.asego.common.request.doctor.DoctorSearchRequest;
@@ -66,6 +69,7 @@ public class DoctorClientService extends BaseClientService {
                                           
         }
 
+
         @Nonnull
         public DoctorSearchResponse search(@Nullable final UUID searchToken,
                                           final int page,
@@ -77,19 +81,10 @@ public class DoctorClientService extends BaseClientService {
             pageParameter.setPageIndex(page);
             pageParameter.setLimit(size);                               
             
-            DoctorSearchRequest request = DoctorSearchRequest.of(null, pageParameter , doctorSearchFilter) ;                               
-
-            return request()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(request)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .post(AsegoPaths.DOCTOR__LIST)
-                .as(DoctorSearchResponse.class);
+            return search( null, pageParameter, doctorSearchFilter);
         }
+
+
 
         @Nullable
         public DoctorListItem findByDoctorNumber(@Nonnull final String doctornumber) {
@@ -104,5 +99,24 @@ public class DoctorClientService extends BaseClientService {
             return response.getItems().get(0);
         }
         
-    
+        @Nonnull
+        private  DoctorSearchResponse search(
+                                          @Nullable List<OrderItem> orderBy,
+                                          @Nonnull PageParameter pageParameter,
+                                          @Nonnull final DoctorSearchFilter doctorSearchFilter) {
+            
+            DoctorSearchRequest request = DoctorSearchRequest.of(orderBy, pageParameter , doctorSearchFilter) ;                               
+
+            return request()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(request)
+                .log().all()
+                .expect().statusCode(200)
+                .log().all()
+                .when()
+                .post(AsegoPaths.DOCTOR__LIST)
+                .as(DoctorSearchResponse.class);
+        }
+
 }
