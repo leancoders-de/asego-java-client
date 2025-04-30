@@ -10,11 +10,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor(staticName = "of")
 @Data
-public class OrderItem {
+public class OrderItem<T> {
 
     @Nullable
     @JsonProperty("FieldName")
-    private String fieldName;
+    private T fieldName;
 
     @NonNull
     @JsonProperty("Desc")
