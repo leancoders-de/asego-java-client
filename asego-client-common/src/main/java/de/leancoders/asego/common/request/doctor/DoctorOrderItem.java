@@ -17,9 +17,4 @@ public class DoctorOrderItem extends OrderItem<EDoctorField> {
         return orderItem;
     }
 
-
-    private DoctorOrderItem() {
-        super();
-    }
-
 }

@@ -4,10 +4,14 @@ import de.leancoders.asego.common.model.customer.ECustomerField;
 import de.leancoders.asego.common.request.OrderItem;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor(staticName = "of")
 @Data
 @EqualsAndHashCode(callSuper = true)
 class CustomerOrderItem extends OrderItem<ECustomerField> {
+    public static CustomerOrderItem of(ECustomerField fieldName, Boolean desc) {
+        CustomerOrderItem orderItem = new CustomerOrderItem();
+        orderItem.setFieldName(fieldName);
+        orderItem.setDesc(desc);
+        return orderItem;
+    }
 }
