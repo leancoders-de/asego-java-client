@@ -8,8 +8,8 @@ import javax.annotation.Nullable;
 
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.common.request.OrderItem;
 import de.leancoders.asego.common.request.PageParameter;
+import de.leancoders.asego.common.request.doctor.DoctorOrderItem;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
 import de.leancoders.asego.common.request.doctor.DoctorSearchRequest;
 import de.leancoders.asego.common.request.doctor.DoctorUpdateRequest;
@@ -86,7 +86,7 @@ public class DoctorClientService extends BaseClientService {
     public DoctorSearchResponse search(@Nullable final UUID searchToken,
             final int page,
             final int size,
-            @Nonnull final List<OrderItem> orderBy,
+            @Nonnull final List<DoctorOrderItem> orderBy,
             @Nonnull final DoctorSearchFilter doctorSearchFilter) {
 
         if (orderBy.isEmpty()) {
@@ -116,7 +116,7 @@ public class DoctorClientService extends BaseClientService {
 
     @Nonnull
     private DoctorSearchResponse search(
-            @Nullable List<OrderItem> orderBy,
+            @Nullable List<DoctorOrderItem> orderBy,
             @Nonnull PageParameter pageParameter,
             @Nonnull final DoctorSearchFilter doctorSearchFilter) {
 

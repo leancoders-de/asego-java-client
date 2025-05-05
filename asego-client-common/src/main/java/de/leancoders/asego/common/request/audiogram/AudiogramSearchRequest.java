@@ -1,6 +1,5 @@
 package de.leancoders.asego.common.request.audiogram;
 
-import de.leancoders.asego.common.request.OrderItem;
 import de.leancoders.asego.common.request.PageParameter;
 import de.leancoders.asego.common.request.SearchRequest;
 import lombok.Data;
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AudiogramSearchRequest extends SearchRequest<AudiogramSearchFilter> {
+public class AudiogramSearchRequest extends SearchRequest<AudiogramSearchFilter, AudiogramOrderItem> {
 
     public static AudiogramSearchRequest of(@NonNull PageParameter list) {
         AudiogramSearchRequest request = new AudiogramSearchRequest();
@@ -20,7 +19,7 @@ public class AudiogramSearchRequest extends SearchRequest<AudiogramSearchFilter>
         return request;
     }
     
-    public static AudiogramSearchRequest of(@Nullable List<OrderItem> orderBy, 
+    public static AudiogramSearchRequest of(@Nullable List<AudiogramOrderItem> orderBy, 
                                            @NonNull PageParameter list, 
                                            @Nullable AudiogramSearchFilter search) {
         AudiogramSearchRequest request = new AudiogramSearchRequest();

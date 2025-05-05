@@ -1,18 +1,19 @@
 package de.leancoders.asego.common.request;
 
-import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+@NoArgsConstructor
 @RequiredArgsConstructor(staticName = "of")
 @Data
 public class OrderItem<T> {
 
-    @Nullable
+    @NonNull
     @JsonProperty("FieldName")
     private T fieldName;
 

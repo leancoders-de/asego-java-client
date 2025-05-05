@@ -14,11 +14,11 @@ import javax.annotation.Nullable;
 
 @NoArgsConstructor
 @Data
-public abstract class SearchRequest<T> {
+public abstract class SearchRequest<T, S> {
 
     @Nullable
     @JsonProperty("OrderBy")
-    private List<OrderItem> orderBy;
+    private List<S> orderBy;
 
     @NonNull
     @JsonProperty("List")
