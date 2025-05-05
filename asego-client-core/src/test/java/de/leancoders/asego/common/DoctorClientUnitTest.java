@@ -1,5 +1,7 @@
 package de.leancoders.asego.common;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
+import de.leancoders.asego.common.model.doctor.EDoctorField;
+import de.leancoders.asego.common.request.doctor.DoctorOrderItem;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
 import de.leancoders.asego.common.request.doctor.DoctorUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
@@ -42,6 +46,18 @@ public class DoctorClientUnitTest {
         final DoctorSearchResponse doctors = clientService
                 .doctors()
                 .search(null, 0, 10, doctorSearchFilter);
+        System.out.println("doctors = " + doctors);
+    }
+
+    @Test void test_doctor_search_ordered() {
+        final DoctorSearchFilter doctorSearchFilter = DoctorSearchFilter.of();
+        final List<DoctorOrderItem> orderBy = new ArrayList<>();
+        DoctorOrderItem orderByItem =  DoctorOrderItem.of(EDoctorField.FIRST_NAME, true);
+        orderBy.add(orderByItem);
+        
+        final DoctorSearchResponse doctors = clientService
+                .doctors()
+                .search(null, 0, 10,orderBy, doctorSearchFilter);
         System.out.println("doctors = " + doctors);
     }
 
