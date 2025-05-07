@@ -6,6 +6,9 @@ import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
+import de.leancoders.asego.common.request.customer.CustomerSearchFilter;
+import de.leancoders.asego.common.model.customer.ECustomerField;
+import de.leancoders.asego.common.request.customer.CustomerOrderItem;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +16,9 @@ import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
+import java.util.List;
+import java.util.ArrayList;
+
 
 @Log4j2
 public class CustomerClientUnitTest {
@@ -82,5 +88,23 @@ public class CustomerClientUnitTest {
                 .customers()
                 .create(customerUpdateRequest);
         System.out.println("customer = " + customer);
+    }
+
+    @Test
+    public void test_customers_searchWithOrdering() {
+        CustomerSearchFilter searchFilter = CustomerSearchFilter.of();
+
+        // Create ordering parameters
+        List<CustomerOrderItem> orderBy = new ArrayList<>();
+        orderBy.add(CustomerOrderItem.of(ECustomerField.LAST_NAME, true)); 
+
+        // Execute search with ordering
+        final CustomerSearchResponse customers = clientService
+                .customers()
+                .search(null, 0, 10, orderBy, searchFilter);
+
+        System.out.println("Ordered customers search result = " + customers);
+        
+      
     }
 }

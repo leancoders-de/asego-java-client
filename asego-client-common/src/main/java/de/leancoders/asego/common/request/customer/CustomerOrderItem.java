@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-class CustomerOrderItem extends OrderItem<ECustomerField> {
+public class CustomerOrderItem extends OrderItem<ECustomerField> {
     public static CustomerOrderItem of(ECustomerField fieldName, Boolean desc) {
         CustomerOrderItem orderItem = new CustomerOrderItem();
         orderItem.setFieldName(fieldName);

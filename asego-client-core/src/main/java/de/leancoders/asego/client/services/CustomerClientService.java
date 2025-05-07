@@ -3,6 +3,7 @@ package de.leancoders.asego.client.services;
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.common.request.PageParameter;
+import de.leancoders.asego.common.request.customer.CustomerOrderItem;
 import de.leancoders.asego.common.request.customer.CustomerSearchFilter;
 import de.leancoders.asego.common.request.customer.CustomerSearchRequest;
 import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
@@ -14,6 +15,7 @@ import lombok.NonNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 import static de.leancoders.asego.client.services.AsegoPaths.CUSTOMERS__CREATE;
@@ -89,11 +91,41 @@ public class CustomerClientService extends BaseClientService {
             final int size,
             @Nonnull final CustomerSearchFilter customerSearchFilter) {
 
-        final PageParameter list = PageParameter.of();
-        list.setSearchToken(searchToken);
-        list.setLimit(size);
-        list.setPageIndex(page);
-        final CustomerSearchRequest customerSearchRequest = CustomerSearchRequest.of(null, list, customerSearchFilter);
+        PageParameter pageParameter = PageParameter.of();
+        pageParameter.setSearchToken(searchToken);
+        pageParameter.setPageIndex(page);
+        pageParameter.setLimit(size);
+
+        return search(null, pageParameter, customerSearchFilter);
+    }
+
+    @Nonnull
+    public CustomerSearchResponse search(@Nullable final UUID searchToken,
+            final int page,
+            final int size,
+            @Nonnull final List<CustomerOrderItem> orderBy,
+            @Nonnull final CustomerSearchFilter customerSearchFilter) {
+
+        if (orderBy != null && orderBy.isEmpty()) {
+            throw new IllegalArgumentException("orderBy must not be empty if provided");
+        }
+
+        PageParameter pageParameter = PageParameter.of();
+        pageParameter.setSearchToken(searchToken);
+        pageParameter.setPageIndex(page);
+        pageParameter.setLimit(size);
+
+        return search(orderBy, pageParameter, customerSearchFilter);
+    }
+
+    @Nonnull
+    private CustomerSearchResponse search(
+            @Nullable List<CustomerOrderItem> orderBy,
+            @Nonnull PageParameter pageParameter,
+            @Nonnull final CustomerSearchFilter customerSearchFilter) {
+
+        CustomerSearchRequest customerSearchRequest = CustomerSearchRequest.of(orderBy, pageParameter, customerSearchFilter);
+        
         return request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
