@@ -2,6 +2,7 @@ package de.leancoders.asego.common;
 
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
+import de.leancoders.asego.common.model.audiogram.EAudiogramField;
 import de.leancoders.asego.common.model.audiogram.EAudiogramType;
 import de.leancoders.asego.common.model.audiogram.EEarType;
 import de.leancoders.asego.common.model.audiogram.EMessureItemType;
@@ -12,6 +13,7 @@ import de.leancoders.asego.common.request.audiogram.AudiogramToneUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.audiogram.AudiogramListingItem;
 import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
+import de.leancoders.asego.common.request.audiogram.AudiogramOrderItem;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,6 +54,27 @@ public class AudiogrammClientUnitTest {
             .audiograms()
             .search(null, 0, 10, audiogramSearchFilter);
         System.out.println("audiograms = " + audiograms);
+    }
+
+    @Test
+    public void test_audiogram_search_with_ordering() {
+
+        AudiogramSearchFilter audiogramSearchFilter = AudiogramSearchFilter.of(UID);
+        
+
+        List<AudiogramOrderItem> orderItems = List.of(
+            AudiogramOrderItem.of(EAudiogramField.SPEECH, false)
+        );
+        
+
+        final AudiogramSearchResponse audiograms = clientService
+            .audiograms()
+            .search(null, 0, 10, orderItems, audiogramSearchFilter);
+            
+
+        System.out.println("Ordered audiograms = " + audiograms);
+        
+
     }
 
     @Test

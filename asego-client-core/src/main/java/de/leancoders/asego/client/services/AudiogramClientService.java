@@ -4,6 +4,7 @@ import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.common.request.PageParameter;
 import de.leancoders.asego.common.request.audiogram.AudiogramBaseUpdateRequest;
+import de.leancoders.asego.common.request.audiogram.AudiogramOrderItem;
 import de.leancoders.asego.common.request.audiogram.AudiogramSearchFilter;
 import de.leancoders.asego.common.request.audiogram.AudiogramSearchRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
@@ -71,12 +72,41 @@ public class AudiogramClientService extends BaseClientService {
             final int size,
             @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
 
-        final PageParameter list = PageParameter.of();
-        list.setLimit(size);
-        list.setPageIndex(page);
-        list.setSearchToken(searchToken);
-        final AudiogramSearchRequest searchRequest = AudiogramSearchRequest.of(null, list, audiogramSearchFilter);
+        PageParameter pageParameter = PageParameter.of();
+        pageParameter.setSearchToken(searchToken);
+        pageParameter.setPageIndex(page);
+        pageParameter.setLimit(size);
 
+        return search(null, pageParameter, audiogramSearchFilter);
+    }
+
+    @Nonnull
+    public AudiogramSearchResponse search(@Nullable final UUID searchToken,
+            final int page,
+            final int size,
+            @Nonnull final List<AudiogramOrderItem> orderBy,
+            @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
+
+        if (orderBy != null && orderBy.isEmpty()) {
+            throw new IllegalArgumentException("orderBy must not be empty if provided");
+        }
+
+        PageParameter pageParameter = PageParameter.of();
+        pageParameter.setSearchToken(searchToken);
+        pageParameter.setPageIndex(page);
+        pageParameter.setLimit(size);
+
+        return search(orderBy, pageParameter, audiogramSearchFilter);
+    }
+
+    @Nonnull
+    private AudiogramSearchResponse search(
+            @Nullable List<AudiogramOrderItem> orderBy,
+            @Nonnull PageParameter pageParameter,
+            @Nonnull final AudiogramSearchFilter audiogramSearchFilter) {
+
+        AudiogramSearchRequest searchRequest = AudiogramSearchRequest.of(orderBy, pageParameter, audiogramSearchFilter);
+        
         return request()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
