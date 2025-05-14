@@ -24,6 +24,14 @@ public class UserLoginRequest {
     @NonNull
     private final String grantType = "password";
 
+    //Required for FormUrlEncoded
+    public Map<String, String> toMap() {
+        return Map.of(
+            "username", username,
+            "password", password,
+            "grant_type", grantType
+        );
 
+    }
     
 }
