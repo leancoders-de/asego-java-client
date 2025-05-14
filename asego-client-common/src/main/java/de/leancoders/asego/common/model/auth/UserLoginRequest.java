@@ -25,13 +25,5 @@ public class UserLoginRequest {
     private final String grantType = "password";
 
 
-    //return map<string>
-    public Map<String, String> toMap() {
-        return Map.of(
-            "username", username,
-            "password", password,
-            "grant_type", grantType
-        );
-
-    }
+    
 }
