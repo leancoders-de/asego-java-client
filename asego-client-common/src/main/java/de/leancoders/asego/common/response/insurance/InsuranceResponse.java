@@ -2,11 +2,10 @@ package de.leancoders.asego.common.response.insurance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@NoArgsConstructor
+
 @Data
 public class InsuranceResponse {
 

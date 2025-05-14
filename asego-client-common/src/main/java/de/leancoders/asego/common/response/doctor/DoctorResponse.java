@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.leancoders.asego.common.model.doctor.EDoctorType;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.UUID;
@@ -12,7 +11,7 @@ import java.util.UUID;
 import javax.annotation.Nullable;
 
 @Data
-@NoArgsConstructor
+
 public class DoctorResponse {
 
     @NonNull

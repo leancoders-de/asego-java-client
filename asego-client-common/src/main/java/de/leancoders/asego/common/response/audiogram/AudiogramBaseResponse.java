@@ -2,14 +2,13 @@ package de.leancoders.asego.common.response.audiogram;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor
+
 public abstract class AudiogramBaseResponse {
     @JsonProperty("KundeUid")
     private UUID customerUid;
