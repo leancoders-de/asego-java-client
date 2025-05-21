@@ -1,8 +1,6 @@
 package de.leancoders.asego.common;
 
 import java.util.UUID;
-import java.util.List;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
 import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.insurance.InsuranceSearchFilter;
-import de.leancoders.asego.common.model.insurance.EInsuranceField;
-import de.leancoders.asego.common.request.insurance.InsuranceOrderItem;
 import groovy.util.logging.Log4j2;
 
 @Log4j2
@@ -48,29 +44,11 @@ public class InsuranceClientUnitTest {
         System.out.println("insurance = " + insurance);
     }
 
-    @Test 
-    public void test_insurance_getById() {
+    @Test void test_insurance_getById() {
         final var insurance = clientService
             .insurance()
             .getById(UID);
         System.out.println("insurance = " + insurance);
     }
 
-    @Test
-    public void test_insurance_search_with_order() {
-        // Create search filter
-        final InsuranceSearchFilter insuranceSearchFilter = InsuranceSearchFilter.of();
-        
-
-        List<InsuranceOrderItem> orderBy = new ArrayList<>();
-
-        orderBy.add(InsuranceOrderItem.of(EInsuranceField.NAME, true));
-
-        final var orderedInsurances = clientService
-            .insurance()
-            .search(null, 0, 10, orderBy, insuranceSearchFilter);
-        
-        System.out.println("Ordered insurance search results = " + orderedInsurances);
-        
-    }
 }
