@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.leancoders.asego.common.model.doctor.EDoctorType;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.NoArgsConstructor;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
 @Data
-
+@NoArgsConstructor
 public class DoctorListItem {
 
     @NonNull

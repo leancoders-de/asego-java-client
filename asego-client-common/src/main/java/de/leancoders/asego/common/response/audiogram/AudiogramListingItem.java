@@ -3,6 +3,7 @@ package de.leancoders.asego.common.response.audiogram;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-
+@NoArgsConstructor
 @Data
 public class AudiogramListingItem {
 
