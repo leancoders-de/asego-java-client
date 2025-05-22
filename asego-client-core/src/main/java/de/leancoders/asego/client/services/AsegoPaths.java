@@ -20,6 +20,11 @@ public interface AsegoPaths {
     String CUSTOMERS__LIST = CUSTOMERS_V1_BASE + "Suche/";
     String CUSTOMERS__GET_BY_ID = CUSTOMERS_V1_BASE + "{uuid}/";
 
+    String CUSTOMERS__DOCUMENTS_SEARCH = CUSTOMERS_V1_BASE + "{kundenUid}/Dokumente/Suche/";
+    String CUSTOMERS__DOCUMENTS_GET_BY_ID = CUSTOMERS_V1_BASE + "{kundenUid}/Dokumente/{dokumentUid}/";
+    String CUSTOMERS__DOCUMENTS_DOCUMENT = CUSTOMERS_V1_BASE + "{kundenUid}/Dokumente/";
+    String CUSTOMERS__DOCUMENTS_CREATE = CUSTOMERS_V1_BASE + "{kundenUid}/Dokumente/";
+
     String INSURANCE_V1_BASE = "/v1/Kostentraeger/";
     String INSURANCE__LIST = INSURANCE_V1_BASE + "Suche/";
     String INSURANCE__GET_BY_ID = INSURANCE_V1_BASE + "{uuid}/";
@@ -29,6 +34,5 @@ public interface AsegoPaths {
     String DOCTOR__GET_BY_ID = DOCTOR_V1_BASE + "{uuid}/";
     String DOCTOR__CREATE = DOCTOR_V1_BASE + "Create/";
     String DOCTOR__UPDATE_BY_ID = DOCTOR_V1_BASE + "{uuid}/";
-
 
 }

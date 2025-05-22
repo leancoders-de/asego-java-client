@@ -66,6 +66,11 @@ public class AsegoClientService {
     }
 
     @Nonnull
+    public DocumentClientService documents() {
+        return new DocumentClientService(config, asegoAuthContext);
+    }
+
+    @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
                                        @NonNull final String password,
                                        @NonNull final String path) {
