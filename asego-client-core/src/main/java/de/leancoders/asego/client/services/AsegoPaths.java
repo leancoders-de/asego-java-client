@@ -35,4 +35,9 @@ public interface AsegoPaths {
     String DOCTOR__CREATE = DOCTOR_V1_BASE + "Create/";
     String DOCTOR__UPDATE_BY_ID = DOCTOR_V1_BASE + "{uuid}/";
 
+    String KEYS_V1_BASE = "/v1/Keys/";
+    String KEYS__COUNTRY_LIST = KEYS_V1_BASE + "Land/";
+    String KEYS__SALUTATION_LIST = KEYS_V1_BASE + "Anreden/";
+    String KEYS__TITLE_LIST = KEYS_V1_BASE + "Titel/";
+
 }

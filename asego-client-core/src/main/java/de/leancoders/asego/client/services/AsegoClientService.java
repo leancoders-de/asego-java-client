@@ -71,6 +71,11 @@ public class AsegoClientService {
     }
 
     @Nonnull
+    public KeyClientService keys() {
+        return new KeyClientService(config, asegoAuthContext);
+    }
+
+    @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
                                        @NonNull final String password,
                                        @NonNull final String path) {
