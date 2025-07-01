@@ -1,14 +1,7 @@
-package de.leancoders.asego.common;
+package de.leancoders.asego.client.services;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import de.leancoders.asego.AbstractTest;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.model.doctor.EDoctorField;
 import de.leancoders.asego.common.request.doctor.DoctorOrderItem;
 import de.leancoders.asego.common.request.doctor.DoctorSearchFilter;
@@ -18,26 +11,22 @@ import de.leancoders.asego.common.response.doctor.DoctorListItem;
 import de.leancoders.asego.common.response.doctor.DoctorResponse;
 import de.leancoders.asego.common.response.doctor.DoctorSearchResponse;
 import groovy.util.logging.Log4j;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Log4j
-public class DoctorClientUnitTest {
+public class DoctorClientUnitTest extends AbstractTest {
 
-    private static final String USERNAME = "test";
-    private static final String PASSWORD = "XxyL8X1GT6";
+    @Override
+    public AsegoConfig asegoConfig() {
+        return ASEGO_CONFIG_LOCAL;
+    }
+
     private static final UUID UID = UUID.fromString("b19788aa-3d76-45c5-84d1-2ece3f6319ad");
     private static final String DOCTOR_NUMBER = "669208619";
-
-    public static final AsegoConfig ASEGO_CONFIG_DEFAULT = AsegoConfig.of(
-            "https://localhost/",
-            444);
-
-    private AsegoClientService clientService;
-
-    @BeforeEach
-    public void setUp() {
-        clientService = new AsegoClientService(ASEGO_CONFIG_DEFAULT);
-        clientService.login(USERNAME, PASSWORD);
-    }
 
     @Test
     public void test_doctor_search() {

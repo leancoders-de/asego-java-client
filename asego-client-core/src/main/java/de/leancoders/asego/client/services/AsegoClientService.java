@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 
 public class AsegoClientService {
 
+    public static final RestAssuredConfig CONFIG = RestAssuredConfig.config()
+        .objectMapperConfig(
+            new ObjectMapperConfig().jackson2ObjectMapperFactory(
+                (type, s) -> ObjectMapperFactory.createDefaultObjectMapper()
+            )).sslConfig(new SSLConfig().relaxedHTTPSValidation());
     private final AsegoConfig config;
     private AsegoAuthContext asegoAuthContext;
 
@@ -29,12 +34,7 @@ public class AsegoClientService {
     protected void configureRestAssured() {
         RestAssured.port = config.getPort();
         RestAssured.baseURI = config.getBaseUrl();
-        RestAssured.config =
-            RestAssuredConfig.config()
-                .objectMapperConfig(
-                    new ObjectMapperConfig().jackson2ObjectMapperFactory(
-                        (type, s) -> ObjectMapperFactory.createDefaultObjectMapper()
-                    )).sslConfig(new SSLConfig().relaxedHTTPSValidation());
+        RestAssured.config = CONFIG;
     }
 
     @Nonnull

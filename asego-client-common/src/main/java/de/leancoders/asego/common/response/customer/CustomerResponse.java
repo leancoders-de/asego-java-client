@@ -1,15 +1,14 @@
 package de.leancoders.asego.common.response.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import javax.annotation.Nullable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
-
-import javax.annotation.Nullable;
 
 @NoArgsConstructor
 @Data
@@ -137,15 +136,15 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("Erstellungsdatum")
-    private Date creationDate;
+    private LocalDate creationDate;
 
     @Nullable
     @JsonProperty("LetzteAenderung")
-    private Date lastModified;
+    private LocalDate lastModified;
 
     @Nullable
     @JsonProperty("Geburtsdatum")
-    private Date dateOfBirth;
+    private LocalDate LocalDateOfBirth;
 
     @NonNull
     @JsonProperty("Werbung")
@@ -173,7 +172,7 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("KeineWerbungDatum")
-    private Date noMarketingDate;
+    private LocalDate noMarketingDate;
 
     @Nullable
     @JsonProperty("GrundKeineWerbung")
@@ -189,19 +188,19 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("LetztesHoergeraetR")
-    private Date lastHearingAidRight;
+    private LocalDate lastHearingAidRight;
 
     @Nullable
     @JsonProperty("LetztesHoergeraetL")
-    private Date lastHearingAidLeft;
+    private LocalDate lastHearingAidLeft;
 
     @Nullable
     @JsonProperty("LetzterBesuch")
-    private Date lastVisit;
+    private LocalDate lastVisit;
 
     @Nullable
     @JsonProperty("NaechsteKontrolle")
-    private Date nextCheckup;
+    private LocalDate nextCheckup;
 
     @Nullable
     @JsonProperty("BetreuerAkustikKuerzel")
@@ -325,7 +324,7 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("InaktivDatum")
-    private Date inactiveDate;
+    private LocalDate inactiveDate;
 
     @Nullable
     @JsonProperty("GrundInaktiv")
@@ -333,7 +332,7 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("NaechsterTerminDatum")
-    private Date nextAppointmentDate;
+    private LocalDate nextAppointmentDate;
 
     @Nullable
     @JsonProperty("NaechsterTerminID")

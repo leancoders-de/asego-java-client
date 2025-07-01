@@ -1,16 +1,16 @@
 package de.leancoders.asego.common.request.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.annotation.Nullable;
-
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
+@NoArgsConstructor
 @RequiredArgsConstructor(staticName = "of")
 @Data
 public class CustomerUpdateRequest {
@@ -29,7 +29,7 @@ public class CustomerUpdateRequest {
 
     @NonNull
     @JsonProperty("Geburtsdatum")
-    private Date birthDate;
+    private LocalDateTime birthDate;
 
     @Nullable
     @JsonProperty("PrivatVersichert")
@@ -41,7 +41,7 @@ public class CustomerUpdateRequest {
 
     @Nullable
     @JsonProperty("ZuzahlungsbefreitBis")
-    private Date coPaymentExemptUntil;
+    private LocalDateTime coPaymentExemptUntil;
 
     @Nullable
     @JsonProperty("KostentraegerID")
@@ -57,11 +57,11 @@ public class CustomerUpdateRequest {
 
     @Nullable
     @JsonProperty("IKGesundheitskarte")
-    private String healthCardInstituionCode;
+    private String healthCardInstitutionCode;
 
     @Nullable
     @JsonProperty("HNOArztID")
-    private String entDoctorId;
+    private String earNoseThroatDoctorId;
 
     @NonNull
     @JsonProperty("EMail")
@@ -81,7 +81,7 @@ public class CustomerUpdateRequest {
 
     @Nullable
     @JsonProperty("Handy")
-    private String mobile;
+    private String cellular;
 
     @NonNull
     @JsonProperty("Strasse")
@@ -89,7 +89,7 @@ public class CustomerUpdateRequest {
 
     @NonNull
     @JsonProperty("Plz")
-    private String postalCode;
+    private String zipCode;
 
     @NonNull
     @JsonProperty("Ort")

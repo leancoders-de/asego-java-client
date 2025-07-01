@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Date;
 import java.util.UUID;
@@ -19,11 +20,9 @@ import java.util.UUID;
 @Data
 public class DocumentUpdateRequest {
 
-    public static DocumentUpdateRequest of(
-            @NonNull final String fileName,
-            @NonNull final String fileType,
-            @NonNull final String data) {
-        DocumentUpdateRequest request = new DocumentUpdateRequest();
+    @Nonnull
+    public static DocumentUpdateRequest of(@NonNull final String fileName, @NonNull final String fileType, @NonNull final String data) {
+        final DocumentUpdateRequest request = new DocumentUpdateRequest();
         request.setFullFileName(fileName + "." + fileType);
         request.setFileType(fileType);
         request.setFileName(fileName);

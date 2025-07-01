@@ -1,43 +1,40 @@
-package de.leancoders.asego.common;
+package de.leancoders.asego.client.services;
 
+import de.leancoders.asego.AbstractTest;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.client.services.AsegoClientService;
+import de.leancoders.asego.client.model.internal.CustomerUpdateContext;
+import de.leancoders.asego.common.model.customer.ECustomerField;
+import de.leancoders.asego.common.request.customer.CustomerOrderItem;
+import de.leancoders.asego.common.request.customer.CustomerSearchFilter;
 import de.leancoders.asego.common.request.customer.CustomerUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.customer.CustomerResponse;
 import de.leancoders.asego.common.response.customer.CustomerSearchResponse;
-import de.leancoders.asego.common.request.customer.CustomerSearchFilter;
-import de.leancoders.asego.common.model.customer.ECustomerField;
-import de.leancoders.asego.common.request.customer.CustomerOrderItem;
 import lombok.extern.log4j.Log4j2;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Instant;
-import java.util.Date;
-import java.util.UUID;
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 
 @Log4j2
-public class CustomerClientUnitTest {
+public class CustomerClientUnitTest extends AbstractTest {
 
-    private static final String USERNAME = "test";
-    private static final String PASSWORD = "XxyL8X1GT6";
     private static final String CUSTOMER_EMAIL = "test@test.de";
     private static final UUID UID = UUID.fromString("53290761-F5D4-4990-AAB2-0CDEAEF30325");
 
-    public static final AsegoConfig ASEGO_CONFIG_DEFAULT = AsegoConfig.of(
-            "https://localhost/",
-            444);
+    @Override
+    public AsegoConfig asegoConfig() {
+        return ASEGO_CONFIG_DEV;
+    }
 
-    private AsegoClientService clientService;
-
-    @BeforeEach
-    public void setUp() {
-        clientService = new AsegoClientService(ASEGO_CONFIG_DEFAULT);
-        clientService.login(USERNAME, PASSWORD);
+    @Test
+    void testRandomizedFunction() {
+        final CustomerClientService customers = clientService.customers();
+        final CustomerUpdateContext customerUpdateContext = CustomerResourceHelper.randomCustomer(customers);
+        System.out.println("customerUpdateContext = " + customerUpdateContext);
     }
 
     @Test
@@ -62,7 +59,7 @@ public class CustomerClientUnitTest {
         CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
                 "Test",
                 "Test",
-                Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+            LocalDateTime.of(1990, 1, 1, 0, 0, 0),
                 CUSTOMER_EMAIL,
                 "Strasse 1",
                 "12345",
@@ -78,7 +75,7 @@ public class CustomerClientUnitTest {
         CustomerUpdateRequest customerUpdateRequest = CustomerUpdateRequest.of(
                 "Test",
                 "Test",
-                Date.from(Instant.parse("1990-01-01T00:00:00Z")),
+            LocalDateTime.of(1990, 1, 1, 0, 0, 0),
                 CUSTOMER_EMAIL,
                 "Strasse 1",
                 "12345",

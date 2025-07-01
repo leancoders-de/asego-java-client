@@ -43,28 +43,31 @@ public class DocumentClientService extends BaseClientService {
                 .as(CreatedElementResponse.class);
     }
 
-    public void update(@Nonnull final UUID kundenUid, @Nonnull final UUID dokumentUid, @Nonnull final DocumentUpdateRequest updateRequest) {
-        request()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(updateRequest)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .patch(CUSTOMERS__DOCUMENTS_GET_BY_ID, kundenUid, dokumentUid);
+    @Nonnull
+    public String update(@Nonnull final UUID customerUid, @Nonnull final UUID documentUid,
+                         @Nonnull final DocumentUpdateRequest updateRequest) {
+        return request()
+            .contentType(ContentType.JSON)
+            .accept(ContentType.JSON)
+            .body(updateRequest)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .patch(CUSTOMERS__DOCUMENTS_GET_BY_ID, customerUid, documentUid)
+            .asString();
     }
 
     @Nonnull
-    public DocumentResponse getById(@Nonnull final UUID kundenUid, @Nonnull final UUID dokumentUid) {
+    public DocumentResponse getById(@Nonnull final UUID customerUid, @Nonnull final UUID documentUid) {
         return request()
-                .accept(ContentType.JSON)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .get(CUSTOMERS__DOCUMENTS_GET_BY_ID, kundenUid, dokumentUid)
-                .as(DocumentResponse.class);
+            .accept(ContentType.JSON)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .get(CUSTOMERS__DOCUMENTS_GET_BY_ID, customerUid, documentUid)
+            .as(DocumentResponse.class);
     }
 
     @Nonnull
@@ -106,7 +109,7 @@ public class DocumentClientService extends BaseClientService {
                                          @Nonnull PageParameter pageParameter,
                                          @Nonnull final DocumentSearchFilter searchFilter) {
 
-        DocumentSearchRequest requestObj = DocumentSearchRequest.of(orderBy, pageParameter, searchFilter);
+        final DocumentSearchRequest requestObj = DocumentSearchRequest.of(orderBy, pageParameter, searchFilter);
 
         return request()
                 .contentType(ContentType.JSON)

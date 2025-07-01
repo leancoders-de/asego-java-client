@@ -2,7 +2,6 @@ package de.leancoders.asego.common.request;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;

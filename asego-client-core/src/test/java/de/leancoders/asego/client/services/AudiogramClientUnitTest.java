@@ -1,21 +1,21 @@
-package de.leancoders.asego.common;
+package de.leancoders.asego.client.services;
 
+import de.leancoders.asego.AbstractTest;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.model.audiogram.EAudiogramField;
 import de.leancoders.asego.common.model.audiogram.EAudiogramType;
 import de.leancoders.asego.common.model.audiogram.EEarType;
 import de.leancoders.asego.common.model.audiogram.EMessureItemType;
 import de.leancoders.asego.common.request.audiogram.AudiogramMeasureItem;
+import de.leancoders.asego.common.request.audiogram.AudiogramOrderItem;
 import de.leancoders.asego.common.request.audiogram.AudiogramSearchFilter;
 import de.leancoders.asego.common.request.audiogram.AudiogramSpeechUpdateRequest;
 import de.leancoders.asego.common.request.audiogram.AudiogramToneUpdateRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.audiogram.AudiogramListingItem;
 import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
-import de.leancoders.asego.common.request.audiogram.AudiogramOrderItem;
 import lombok.extern.log4j.Log4j2;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -24,32 +24,20 @@ import java.util.List;
 import java.util.UUID;
 
 @Log4j2
-public class AudiogrammClientUnitTest {
+public class AudiogramClientUnitTest extends AbstractTest {
 
-    private static final String USERNAME = "test";
-    private static final String PASSWORD = "XxyL8X1GT6";
     private static final UUID UID = UUID.fromString("53290761-F5D4-4990-AAB2-0CDEAEF30325");
     private static final UUID TONE_UUID = UUID.fromString("41eb7db8-bb74-4306-b858-06ae043e1ec5");
     private static final UUID SPEECH_UUID = UUID.fromString("98d6ea73-cf56-4565-b17e-a6f27f44c39d");
-    
-    public static final AsegoConfig ASEGO_CONFIG_DEFAULT =
-        AsegoConfig.of(
-            "https://localhost/",
-            444
-        );
 
-    private AsegoClientService clientService;
-
-    @BeforeEach
-    public void setUp() {
-        clientService = new AsegoClientService(ASEGO_CONFIG_DEFAULT);
-        clientService.login(USERNAME, PASSWORD);
+    @Override
+    public AsegoConfig asegoConfig() {
+        return ASEGO_CONFIG_LOCAL;
     }
 
     @Test
     public void test_audiogram_search(){
-        AudiogramSearchFilter audiogramSearchFilter = AudiogramSearchFilter.of(
-            UID);
+        AudiogramSearchFilter audiogramSearchFilter = AudiogramSearchFilter.of(UID);
         final AudiogramSearchResponse audiograms = clientService
             .audiograms()
             .search(null, 0, 10, audiogramSearchFilter);
@@ -77,8 +65,9 @@ public class AudiogrammClientUnitTest {
 
     }
 
+    @DisplayName("Audiogram: create Audiogram Speech")
     @Test
-    public void test_audriogramm_createSpech(){
+    public void test_audiogram_createSpeech() {
 
         final List<AudiogramMeasureItem> audiogramMeasureItems = List.of(
             AudiogramMeasureItem.of(0, 0, EMessureItemType.NONE),

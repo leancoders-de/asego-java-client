@@ -1,4 +1,4 @@
-package de.leancoders.asego.common;
+package de.leancoders.asego.client.services;
 
 import java.util.UUID;
 import java.util.List;
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.client.services.AsegoClientService;
 import de.leancoders.asego.common.request.insurance.InsuranceSearchFilter;
 import de.leancoders.asego.common.model.insurance.EInsuranceField;
 import de.leancoders.asego.common.request.insurance.InsuranceOrderItem;

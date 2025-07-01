@@ -1,15 +1,12 @@
 package de.leancoders.asego.client.services;
 
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import de.leancoders.asego.client.model.internal.AsegoAuthContext;
 import de.leancoders.asego.client.model.internal.AsegoConfig;
-import de.leancoders.asego.common.response.keys.KeyListingItem;
-import io.restassured.common.mapper.TypeRef;
+import de.leancoders.asego.common.response.keys.KeyListResponse;
 import io.restassured.http.ContentType;
+
+import javax.annotation.Nonnull;
 
 public class KeyClientService  extends BaseClientService {
 
@@ -18,39 +15,39 @@ public class KeyClientService  extends BaseClientService {
     }
 
     @Nonnull
-    public List<KeyListingItem> getSalutationList() {
+    public KeyListResponse getSalutationList() {
         return request()
-                .accept(ContentType.JSON)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .get(AsegoPaths.KEYS__SALUTATION_LIST).as(new TypeRef<List<KeyListingItem>>() {
-                });
+            .accept(ContentType.JSON)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .get(AsegoPaths.KEYS__SALUTATION_LIST)
+            .as(KeyListResponse.class);
     }
 
     @Nonnull
-    public List<KeyListingItem> getTitleList() {
+    public KeyListResponse getTitleList() {
         return request()
-                .accept(ContentType.JSON)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .get(AsegoPaths.KEYS__TITLE_LIST).as(new TypeRef<List<KeyListingItem>>() {
-                });
+            .accept(ContentType.JSON)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .get(AsegoPaths.KEYS__TITLE_LIST)
+            .as(KeyListResponse.class);
     }
 
     @Nonnull
-    public List<KeyListingItem> getCountryList() {
+    public KeyListResponse getCountryList() {
         return request()
-                .accept(ContentType.JSON)
-                .log().all()
-                .expect().statusCode(200)
-                .log().all()
-                .when()
-                .get(AsegoPaths.KEYS__COUNTRY_LIST).as(new TypeRef<List<KeyListingItem>>() {
-                });
+            .accept(ContentType.JSON)
+            .log().all()
+            .expect().statusCode(200)
+            .log().all()
+            .when()
+            .get(AsegoPaths.KEYS__COUNTRY_LIST)
+            .as(KeyListResponse.class);
     }
     
 }

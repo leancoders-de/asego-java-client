@@ -1,7 +1,6 @@
 package de.leancoders.asego.common.response.keys;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
