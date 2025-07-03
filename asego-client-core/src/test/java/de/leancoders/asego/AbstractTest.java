@@ -10,13 +10,13 @@ public abstract class AbstractTest {
     protected static final String PASSWORD = "XxyL8X1GT6";
 
     protected static final AsegoConfig ASEGO_CONFIG_LOCAL =
-        de.leancoders.asego.client.model.internal.AsegoConfig.of(
+        AsegoConfig.of(
             "https://localhost/",
             444
         );
 
     protected static final AsegoConfig ASEGO_CONFIG_DEV =
-        de.leancoders.asego.client.model.internal.AsegoConfig.of(
+        AsegoConfig.of(
             "https://asego.dev.leancoders.de/",
             444
         );
