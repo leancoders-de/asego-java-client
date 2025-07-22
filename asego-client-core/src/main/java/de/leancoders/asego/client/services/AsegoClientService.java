@@ -81,6 +81,11 @@ public class AsegoClientService {
     }
 
     @Nonnull
+    public ProductClientService products() {
+        return new ProductClientService(config, asegoAuthContext);
+    }
+
+    @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
                                        @NonNull final String password,
                                        @NonNull final String path) {

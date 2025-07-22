@@ -1,5 +1,6 @@
 package de.leancoders.asego.client.services;
 
+
 public interface AsegoPaths {
 
     // https://localhost:444/v1/Kunden/Create
@@ -42,5 +43,8 @@ public interface AsegoPaths {
 
     String DEVICES_V1_BASE = "/v1/Geraete/";
     String DEVICES__SEARCH = DEVICES_V1_BASE + "Suche/";
+
+    String PRODUCT_V1_BASE = "/v1/Artikel/";
+    String PRODUCT__SEARCH = PRODUCT_V1_BASE + "Suche/";
 
 }
