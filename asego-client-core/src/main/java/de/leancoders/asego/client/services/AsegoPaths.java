@@ -40,4 +40,7 @@ public interface AsegoPaths {
     String KEYS__SALUTATION_LIST = KEYS_V1_BASE + "Anreden/";
     String KEYS__TITLE_LIST = KEYS_V1_BASE + "Titel/";
 
+    String DEVICES_V1_BASE = "/v1/Geraete/";
+    String DEVICES__SEARCH = DEVICES_V1_BASE + "Suche/";
+
 }

@@ -76,6 +76,11 @@ public class AsegoClientService {
     }
 
     @Nonnull
+    public DeviceClientService devices() {
+        return new DeviceClientService(config, asegoAuthContext);
+    }
+
+    @Nonnull
     protected String obtainAccessToken(@NonNull final String username,
                                        @NonNull final String password,
                                        @NonNull final String path) {
