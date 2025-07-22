@@ -2,6 +2,7 @@ package de.leancoders.asego.common.response.device;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import de.leancoders.asego.common.model.device.EDeviceEarSide;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -60,7 +61,7 @@ public class DeviceListItem {
     private Double inventoryValue;
 
     @JsonProperty("OhrSeite")
-    private String earSide;
+    private EDeviceEarSide earSide;
 
     @JsonProperty("Batterietyp")
     private String batteryType;

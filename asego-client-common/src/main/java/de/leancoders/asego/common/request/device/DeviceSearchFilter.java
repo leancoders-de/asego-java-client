@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import de.leancoders.asego.common.model.device.EDeviceEarSide;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -90,7 +91,7 @@ public class DeviceSearchFilter {
 
     @Nullable
     @JsonProperty("OhrSeite")
-    private String earSide;
+    private EDeviceEarSide earSide;
 
     @Nullable
     @JsonProperty("Batterietyp")
