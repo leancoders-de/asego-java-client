@@ -53,11 +53,11 @@ public class DeviceSearchFilter {
 
     @Nullable
     @JsonProperty("KundenID")
-    private String customerId;
+    private UUID customerId;
 
     @Nullable
     @JsonProperty("ArtikelID")
-    private String articleId;
+    private UUID articleId;
 
     @Nullable
     @JsonProperty("Seriennummer")
