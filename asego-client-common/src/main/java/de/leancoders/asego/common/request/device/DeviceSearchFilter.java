@@ -1,5 +1,7 @@
 package de.leancoders.asego.common.request.device;
 
+import java.util.UUID;
+
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,7 +37,7 @@ public class DeviceSearchFilter {
 
     @Nullable
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @Nullable
     @JsonProperty("Suchbegriff")

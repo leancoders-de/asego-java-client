@@ -1,6 +1,7 @@
 package de.leancoders.asego.common.request.product;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
 
@@ -34,7 +35,7 @@ public class ProductSearchFilter {
 
     @Nullable
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @Nullable
     @JsonProperty("Suchbegriff")

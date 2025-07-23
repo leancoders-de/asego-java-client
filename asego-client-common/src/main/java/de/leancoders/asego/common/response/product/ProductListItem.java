@@ -1,5 +1,7 @@
 package de.leancoders.asego.common.response.product;
 
+import java.util.UUID;
+
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +16,7 @@ public class ProductListItem {
 
     @NonNull
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @Nullable
     @JsonProperty("Suchbegriff")

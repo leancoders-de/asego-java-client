@@ -1,5 +1,7 @@
 package de.leancoders.asego.common.response.device;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.leancoders.asego.common.model.device.EDeviceEarSide;
@@ -13,7 +15,7 @@ public class DeviceListItem {
 
     @NonNull
     @JsonProperty("uid")
-    private String uid;
+    private UUID uid;
 
     @JsonProperty("Suchbegriff")
     private String searchTerm;
