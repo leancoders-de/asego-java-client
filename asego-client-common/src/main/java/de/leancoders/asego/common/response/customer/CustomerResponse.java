@@ -88,7 +88,7 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("KostentraegerID")
-    private String insuranceCarrierId;
+    private UUID insuranceCarrierId;
 
     @Nullable
     @JsonProperty("IKGesundheitskarte")
@@ -308,7 +308,7 @@ public class CustomerResponse {
 
     @Nullable
     @JsonProperty("ArztHNOID")
-    private String entDoctorId;
+    private UUID entDoctorId;
 
     @Nullable
     @JsonProperty("ArztHausID")

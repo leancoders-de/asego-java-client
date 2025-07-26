@@ -45,7 +45,7 @@ public class CustomerUpdateRequest {
 
     @Nullable
     @JsonProperty("KostentraegerID")
-    private String insuranceCarrierId;
+    private UUID insuranceCarrierId;
 
     @Nullable
     @JsonProperty("VersicherungsNummer")
@@ -61,7 +61,7 @@ public class CustomerUpdateRequest {
 
     @Nullable
     @JsonProperty("HNOArztID")
-    private String earNoseThroatDoctorId;
+    private UUID entDoctorId;
 
     @NonNull
     @JsonProperty("EMail")
