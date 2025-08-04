@@ -23,7 +23,7 @@ public class DocumentUpdateRequest {
     @Nonnull
     public static DocumentUpdateRequest of(@NonNull final String fileName, @NonNull final String fileType, @NonNull final String data) {
         final DocumentUpdateRequest request = new DocumentUpdateRequest();
-        request.setFullFileName(fileName + "." + fileType);
+        request.setFullFileName(fileName);
         request.setFileType(fileType);
         request.setFileName(fileName);
         request.setData(data);
