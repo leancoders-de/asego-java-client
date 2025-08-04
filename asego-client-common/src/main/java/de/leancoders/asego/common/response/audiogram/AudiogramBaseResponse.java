@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-public abstract class AudiogramBaseResponse {
+public class AudiogramBaseResponse {
     @JsonProperty("KundeUid")
     private UUID customerUid;
 

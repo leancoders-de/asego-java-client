@@ -10,6 +10,8 @@ import de.leancoders.asego.common.request.audiogram.AudiogramSearchRequest;
 import de.leancoders.asego.common.response.CreatedElementResponse;
 import de.leancoders.asego.common.response.audiogram.AudiogramListResponse;
 import de.leancoders.asego.common.response.audiogram.AudiogramSearchResponse;
+import de.leancoders.asego.common.response.audiogram.AudiogramSpeechResponse;
+import de.leancoders.asego.common.response.audiogram.AudiogramToneResponse;
 import io.restassured.http.ContentType;
 import lombok.NonNull;
 
@@ -131,7 +133,7 @@ public class AudiogramClientService extends BaseClientService {
     }
 
     @NonNull
-    public AudiogramListResponse getSpeechById(@NonNull final UUID audiogramUuid) {
+    public AudiogramSpeechResponse getSpeechById(@NonNull final UUID audiogramUuid) {
         return request()
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
@@ -140,11 +142,11 @@ public class AudiogramClientService extends BaseClientService {
             .log().all()
             .when()
             .get(AUDIOGRAM__SPEECH_GET_BY_ID, audiogramUuid)
-            .as(AudiogramListResponse.class);
+            .as(AudiogramSpeechResponse.class);
     }
 
     @NonNull
-    public AudiogramListResponse getToneById(@NonNull final UUID audiogramUuid) {
+    public AudiogramToneResponse getToneById(@NonNull final UUID audiogramUuid) {
         return request()
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
@@ -153,7 +155,7 @@ public class AudiogramClientService extends BaseClientService {
             .log().all()
             .when()
             .get(AUDIOGRAM__TONE_GET_BY_ID, audiogramUuid)
-            .as(AudiogramListResponse.class);
+            .as(AudiogramToneResponse.class);
     }
 
 }

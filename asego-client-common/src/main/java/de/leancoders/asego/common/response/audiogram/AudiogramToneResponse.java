@@ -1,5 +1,7 @@
 package de.leancoders.asego.common.response.audiogram;
 
+import java.util.ArrayList;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -7,5 +9,5 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class AudiogramToneResponse extends AudiogramBaseResponse {
+public class AudiogramToneResponse extends ArrayList<AudiogramBaseResponse> {
 }
